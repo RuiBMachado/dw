@@ -90,6 +90,63 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`CupaoDesconto` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `eurosuper`.`audCliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `eurosuper`.`audCliente` (
+  `id` INT NOT NULL,
+  `CC` INT NOT NULL,
+  `PNome` VARCHAR(15) NOT NULL,
+  `UNome` VARCHAR(15) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `NIF` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `eurosuper`.`audCalendario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `eurosuper`.`audCalendario` (
+  `id` INT NOT NULL,
+  `Data` DATETIME NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `eurosuper`.`audCombustivel`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `eurosuper`.`audCombustivel` (
+  `id` INT NOT NULL,
+  `Tipo` VARCHAR(20) NOT NULL,
+  `Preco` DECIMAL(4,3) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `idCombustivel` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `eurosuper`.`audVenda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `eurosuper`.`audVenda` (
+  `id` INT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `idCombustivel` INT NOT NULL,
+  `CCCliente` INT NOT NULL,
+  `Data` DATETIME NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
