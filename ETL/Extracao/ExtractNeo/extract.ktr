@@ -443,7 +443,7 @@
     <database>fonte2</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -470,13 +470,13 @@
     <database/>
     <port>1521</port>
     <username>neo4j</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
       <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.neo4j.jdbc.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;neo4j&#x3a;&#x2f;&#x2f;localhost&#x3a;7474</attribute></attribute>
+      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;neo4j&#x3a;http&#x3a;&#x2f;&#x2f;localhost&#x3a;7474</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -540,7 +540,7 @@
     </partitioning>
     <connection>fonte2</connection>
     <schema/>
-    <table>audNeo</table>
+    <table>audneo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -557,35 +557,35 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>c.tipo</column_name>
+          <column_name>Tipo</column_name>
           <stream_name>c.tipo</stream_name>
         </field>
         <field>
-          <column_name>c.custo</column_name>
+          <column_name>CustoL</column_name>
           <stream_name>c.custo</stream_name>
         </field>
         <field>
-          <column_name>v.totalPago</column_name>
+          <column_name>TotalPago</column_name>
           <stream_name>v.totalPago</stream_name>
         </field>
         <field>
-          <column_name>v.qtdAbastecida</column_name>
+          <column_name>QtdAbastecida</column_name>
           <stream_name>v.qtdAbastecida</stream_name>
         </field>
         <field>
-          <column_name>v.data</column_name>
+          <column_name>Data</column_name>
           <stream_name>v.data</stream_name>
         </field>
         <field>
-          <column_name>cl.nome</column_name>
+          <column_name>Nome</column_name>
           <stream_name>cl.nome</stream_name>
         </field>
         <field>
-          <column_name>cl.cc</column_name>
+          <column_name>CC</column_name>
           <stream_name>cl.cc</stream_name>
         </field>
         <field>
-          <column_name>cl.nif</column_name>
+          <column_name>NIF</column_name>
           <stream_name>cl.nif</stream_name>
         </field>
     </fields>

@@ -18,7 +18,7 @@ USE `Fonte2` ;
 -- Table `Fonte2`.`audNeo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
-  `id` INT,
+  `id` INT AUTO_INCREMENT,
   `Tipo` VARCHAR(45),
   `CustoL` FLOAT,
   `TotalPago` FLOAT,

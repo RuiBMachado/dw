@@ -431,11 +431,38 @@
     <created_date>2017&#x2f;01&#x2f;16 19&#x3a;04&#x3a;18.745</created_date>
     <modified_user>-</modified_user>
     <modified_date>2017&#x2f;01&#x2f;16 19&#x3a;04&#x3a;18.745</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>aRetencao</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>arearetencao</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>fonte2</name>
     <server>localhost</server>
@@ -444,7 +471,7 @@
     <database>fonte2</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -466,17 +493,22 @@
   <order>
     <hop>
       <from>AudNeo</from>
-      <to>VerificaCampos&#x3f;&#x3f;</to>
+      <to>VerificaCampos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>VerificaCampos&#x3f;&#x3f;</from>
-      <to>Table output</to>
+      <from>VerificaCampos</from>
+      <to>Quarentena</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>VerificaCampos&#x3f;&#x3f;</from>
-      <to>Table output 2</to>
+      <from>VerificaCampos</from>
+      <to>posLimpeza</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Quarentena</from>
+      <to>Delete Auditoria</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -492,7 +524,7 @@
       <schema_name/>
     </partitioning>
     <connection>fonte2</connection>
-    <sql>SELECT&#xa;  &#x60;c.tipo&#x60;&#xa;, &#x60;c.custo&#x60;&#xa;, &#x60;v.totalPago&#x60;&#xa;, &#x60;v.qtdAbastecida&#x60;&#xa;, &#x60;v.data&#x60;&#xa;, &#x60;cl.nome&#x60;&#xa;, &#x60;cl.cc&#x60;&#xa;, &#x60;cl.nif&#x60;&#xa;FROM audNeo&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Tipo&#xd;&#xa;, CustoL&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, Data&#xd;&#xa;, Nome&#xd;&#xa;, CC&#xd;&#xa;, NIF&#xd;&#xa;FROM audneo&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -513,8 +545,8 @@
     </step>
 
   <step>
-    <name>VerificaCampos&#x3f;&#x3f;</name>
-    <type>FilterRows</type>
+    <name>Delete Auditoria</name>
+    <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -523,16 +555,66 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>Table output 2</send_true_to>
-<send_false_to>Table output</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue/>
- <function>&#x3d;</function>
- <rightvalue/>
- </condition>
-    </compare>
+    <connection>aRetencao</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema/>
+      <table>qua_neo</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Tipo</name>
+        <field>Tipo</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CustoL</name>
+        <field>CustoL</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TotalPago</name>
+        <field>TotalPago</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>QtdAbastecida</name>
+        <field>QtdAbastecida</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Data</name>
+        <field>Data</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Nome</name>
+        <field>Nome</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CC</name>
+        <field>CC</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>NIF</name>
+        <field>NIF</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+    </lookup>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -541,14 +623,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>224</yloc>
+      <xloc>656</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Quarentena</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -558,14 +640,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>aRetencao</connection>
     <schema/>
-    <table/>
+    <table>qua_neo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
+    <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
@@ -576,6 +658,42 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
+        <field>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
+        </field>
+        <field>
+          <column_name>CustoL</column_name>
+          <stream_name>CustoL</stream_name>
+        </field>
+        <field>
+          <column_name>TotalPago</column_name>
+          <stream_name>TotalPago</stream_name>
+        </field>
+        <field>
+          <column_name>QtdAbastecida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
+        </field>
+        <field>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
+        </field>
+        <field>
+          <column_name>Nome</column_name>
+          <stream_name>Nome</stream_name>
+        </field>
+        <field>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
+        </field>
+        <field>
+          <column_name>NIF</column_name>
+          <stream_name>NIF</stream_name>
+        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -592,7 +710,7 @@
     </step>
 
   <step>
-    <name>Table output 2</name>
+    <name>posLimpeza</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -602,14 +720,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>aRetencao</connection>
     <schema/>
-    <table/>
+    <table>pos_lneo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
+    <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
@@ -620,6 +738,42 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
+        <field>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
+        </field>
+        <field>
+          <column_name>CustoL</column_name>
+          <stream_name>CustoL</stream_name>
+        </field>
+        <field>
+          <column_name>TotalPago</column_name>
+          <stream_name>TotalPago</stream_name>
+        </field>
+        <field>
+          <column_name>QtdAbastecida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
+        </field>
+        <field>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
+        </field>
+        <field>
+          <column_name>Nome</column_name>
+          <stream_name>Nome</stream_name>
+        </field>
+        <field>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
+        </field>
+        <field>
+          <column_name>NIF</column_name>
+          <stream_name>NIF</stream_name>
+        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -636,8 +790,8 @@
     </step>
 
   <step>
-    <name>Delete Auditoria</name>
-    <type>Delete</type>
+    <name>VerificaCampos</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -646,12 +800,100 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>fonte2</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>audNeo</table>
-    </lookup>
+<send_true_to>posLimpeza</send_true_to>
+<send_false_to>Quarentena</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>Tipo</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <conditions>
+    <condition>
+     <negated>N</negated>
+     <leftvalue>CustoL</leftvalue>
+     <function>&#x3e;</function>
+     <rightvalue/>
+     <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
+    <condition>
+     <negated>N</negated>
+     <operator>AND</operator>
+     <conditions>
+      <condition>
+       <negated>N</negated>
+       <leftvalue>TotalPago</leftvalue>
+       <function>&#x3e;</function>
+       <rightvalue/>
+       <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>       </condition>
+      <condition>
+       <negated>N</negated>
+       <operator>AND</operator>
+       <conditions>
+        <condition>
+         <negated>N</negated>
+         <leftvalue>QtdAbastecida</leftvalue>
+         <function>&#x3e;</function>
+         <rightvalue/>
+         <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>         </condition>
+        <condition>
+         <negated>N</negated>
+         <operator>AND</operator>
+         <conditions>
+          <condition>
+           <negated>N</negated>
+           <leftvalue>Data</leftvalue>
+           <function>IS NOT NULL</function>
+           <rightvalue/>
+           </condition>
+          <condition>
+           <negated>N</negated>
+           <operator>AND</operator>
+           <conditions>
+            <condition>
+             <negated>N</negated>
+             <leftvalue>Nome</leftvalue>
+             <function>IS NOT NULL</function>
+             <rightvalue/>
+             </condition>
+            <condition>
+             <negated>N</negated>
+             <operator>AND</operator>
+             <conditions>
+              <condition>
+               <negated>N</negated>
+               <leftvalue>CC</leftvalue>
+               <function>&#x3e;</function>
+               <rightvalue/>
+               <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>               </condition>
+              <condition>
+               <negated>N</negated>
+               <operator>AND</operator>
+               <leftvalue>NIF</leftvalue>
+               <function>&#x3e;</function>
+               <rightvalue/>
+               <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>               </condition>
+              </conditions>
+             </condition>
+            </conditions>
+           </condition>
+          </conditions>
+         </condition>
+        </conditions>
+       </condition>
+      </conditions>
+     </condition>
+    </conditions>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -660,8 +902,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>112</yloc>
+      <xloc>352</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

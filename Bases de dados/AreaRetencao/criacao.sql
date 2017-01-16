@@ -361,6 +361,23 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Factos` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Table `arearetencao`.`qua_Neo`
+-- -----------------------------------------------------
+
+CREATE TABLE `arearetencao`.`qua_LNeo` (
+  `id` INT AUTO_INCREMENT,
+  `Tipo` VARCHAR(45),
+  `CustoL` FLOAT,
+  `TotalPago` FLOAT,
+  `QtdAbastecida` FLOAT,
+  `Data` VARCHAR(10),
+  `Nome` VARCHAR(45),
+  `CC` INT,
+  `NIF` INT,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `arearetencao`.`pos_LNeo`
 -- -----------------------------------------------------
 
