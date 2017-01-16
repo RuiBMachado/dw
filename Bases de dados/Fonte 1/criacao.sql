@@ -139,7 +139,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `eurosuper`.`audVenda` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `QtdAbastecida` FLOAT NOT NULL,
+  `QtdAbastecedida` FLOAT NOT NULL,
   `TotalPago` FLOAT NOT NULL,
   `idCombustivel` INT(11) NOT NULL,
   `CCCliente` INT(11) NOT NULL,

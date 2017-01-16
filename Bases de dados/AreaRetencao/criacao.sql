@@ -292,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_FactosP1` (
   `QtdAbastecedida` FLOAT NOT NULL,
   `idCombustivel` INT NOT NULL,
   `CCCliente` INT NOT NULL,
+  `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -307,6 +308,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LFactosP1` (
   `QtdAbastecida` FLOAT NOT NULL,
   `idCombustivel` INT NOT NULL,
   `CCCliente` INT NOT NULL,
+  `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -322,6 +324,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_LFactosP1` (
   `QtdAbastecida` FLOAT NOT NULL,
   `idCombustivel` INT NOT NULL,
   `CCCliente` INT NOT NULL,
+  `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
