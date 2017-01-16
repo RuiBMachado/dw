@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>SF</name>
+    <name>RDB</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -436,6 +437,33 @@
   <notepads>
   </notepads>
   <connection>
+    <name>eurosuper</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>eurosuper</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>retencao</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -470,7 +498,7 @@
     </hop>
     <hop>
       <from>pre_FactosRDB</from>
-      <to>Delete Row AudRental</to>
+      <to>Delete Row AudCombustivel</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -485,8 +513,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>retencao</connection>
-    <sql>SELECT&#xa;id,&#xa;CC,&#xa;Nome,&#xa;NIF,&#xa;Operacao,&#xa;DataOperacao&#xa;FROM pre_ClienteP1&#xa;</sql>
+    <connection>eurosuper</connection>
+    <sql>SELECT&#xa;id,&#xa;Tipo,&#xa;Preco,&#xa;Operacao,&#xa;DataOperacao,&#xa;idCombustivel&#xa;FROM audCombustivel&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -507,7 +535,7 @@
     </step>
 
   <step>
-    <name>Delete Row AudRental</name>
+    <name>Delete Row AudCombustivel</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -517,11 +545,11 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>retencao</connection>
+    <connection>eurosuper</connection>
     <commit>100</commit>
     <lookup>
       <schema/>
-      <table>pre_ClienteP1</table>
+      <table>audCombustivel</table>
       <key>
         <name>Id</name>
         <field>Id</field>
@@ -556,7 +584,7 @@
     </partitioning>
     <connection>retencao</connection>
     <schema/>
-    <table>pos_LClienteP1</table>
+    <table>pre_CombustivelP1</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
