@@ -5,17 +5,17 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema arearetencao
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema arearetencao
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `arearetencao` DEFAULT CHARACTER SET utf8 ;
 USE `arearetencao` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`pre_ClienteP1`
+-- Table `arearetencao`.`pre_ClienteP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_ClienteP1` (
   `id` INT NOT NULL,
@@ -29,7 +29,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_LClienteP1`
+-- Table `arearetencao`.`pos_LClienteP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LClienteP1` (
   `id` INT NOT NULL,
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`qua_LClienteP1`
+-- Table `arearetencao`.`qua_LClienteP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_LClienteP1` (
   `id` INT NOT NULL,
@@ -57,7 +57,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_ConfClienteP1`
+-- Table `arearetencao`.`pos_ConfClienteP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfClienteP1` (
   `id` INT NOT NULL,
@@ -71,7 +71,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`equi_Cliente`
+-- Table `arearetencao`.`equi_Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Cliente` (
   `id` INT NOT NULL,
@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`qua_equiCliente`
+-- Table `arearetencao`.`qua_equiCliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_equiCliente` (
   `id` INT NOT NULL,
@@ -95,7 +95,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_DimCliente`
+-- Table `arearetencao`.`pos_DimCliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente` (
   `id` INT NOT NULL,
@@ -109,7 +109,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_DimCliente_H`
+-- Table `arearetencao`.`pos_DimCliente_H`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente_H` (
   `id` INT NOT NULL,
@@ -122,7 +122,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pre_CalendarioP1`
+-- Table `arearetencao`.`pre_CalendarioP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_CalendarioP1` (
   `id` INT NOT NULL,
@@ -134,7 +134,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`qua_CalendarioP1`
+-- Table `arearetencao`.`qua_CalendarioP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_CalendarioP1` (
   `id` INT NOT NULL,
@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_LCalendarioP1`
+-- Table `arearetencao`.`pos_LCalendarioP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LCalendarioP1` (
   `id` INT NOT NULL,
@@ -158,7 +158,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_ConfCalendarioP1`
+-- Table `arearetencao`.`pos_ConfCalendarioP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfCalendarioP1` (
   `id` INT NOT NULL,
@@ -170,7 +170,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_Calendario`
+-- Table `arearetencao`.`pos_Calendario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Calendario` (
   `Data` DATE NOT NULL,
@@ -182,7 +182,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pre_CombustivelP1`
+-- Table `arearetencao`.`pre_CombustivelP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_CombustivelP1` (
   `id` INT NOT NULL,
@@ -195,7 +195,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_LCombustivelP1`
+-- Table `arearetencao`.`pos_LCombustivelP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LCombustivelP1` (
   `id` INT NOT NULL,
@@ -208,7 +208,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`qua_LCombustivelP1`
+-- Table `arearetencao`.`qua_LCombustivelP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_LCombustivelP1` (
   `id` INT NOT NULL,
@@ -221,7 +221,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_ConfCombustivelP1`
+-- Table `arearetencao`.`pos_ConfCombustivelP1`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfCombustivelP1` (
   `id` INT NOT NULL,
@@ -234,7 +234,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`equi_Combustivel`
+-- Table `arearetencao`.`equi_Combustivel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Combustivel` (
   `id` INT NOT NULL,
@@ -244,7 +244,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`qua_equiCombustivel`
+-- Table `arearetencao`.`qua_equiCombustivel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_equiCombustivel` (
   `id` INT NOT NULL,
@@ -257,7 +257,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_DimCombustivel`
+-- Table `arearetencao`.`pos_DimCombustivel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel` (
   `id` INT NOT NULL,
@@ -270,13 +270,90 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pos_DimCombustivel_H`
+-- Table `arearetencao`.`pos_DimCombustivel_H`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel_H` (
   `id` INT NOT NULL,
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `DIM_Combustivel_id` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pre_FactosP1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_FactosP1` (
+  `id` INT NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecedida` FLOAT NOT NULL,
+  `idCombustivel` INT NOT NULL,
+  `CCCliente` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pos_LFactosP1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LFactosP1` (
+  `id` INT NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `idCombustivel` INT NOT NULL,
+  `CCCliente` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`qua_LFactosP1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_LFactosP1` (
+  `id` INT NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `idCombustivel` INT NOT NULL,
+  `CCCliente` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pos_ConfFactosP1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfFactosP1` (
+  `id` INT NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATE NOT NULL,
+  `DataInsercao` DATE NOT NULL,
+  `IdCliente` INT NOT NULL,
+  `IdCombustivel` INT NOT NULL,
+  `ValorPago` DECIMAL(10,2) NOT NULL,
+  `QtdAbastecida` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pos_Factos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Factos` (
+  `id` INT NOT NULL,
+  `DataOperacao` DATE NOT NULL,
+  `DataInsercao` DATE NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `IdCliente` INT NOT NULL,
+  `IdCombustivel` INT NOT NULL,
+  `ValorPago` DECIMAL(10,2) NOT NULL,
+  `QtdAbastecida` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
