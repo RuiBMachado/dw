@@ -808,9 +808,45 @@
  <conditions>
   <condition>
    <negated>N</negated>
-   <leftvalue>Tipo</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
+   <conditions>
+    <condition>
+     <negated>N</negated>
+     <leftvalue>Tipo</leftvalue>
+     <function>&#x3d;</function>
+     <rightvalue/>
+     <value><name>constant</name><type>String</type><text>Gasoleo</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>     </condition>
+    <condition>
+     <negated>N</negated>
+     <operator>OR</operator>
+     <conditions>
+      <condition>
+       <negated>N</negated>
+       <leftvalue>Tipo</leftvalue>
+       <function>&#x3d;</function>
+       <rightvalue/>
+       <value><name>constant</name><type>String</type><text>Gasolina 95</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>       </condition>
+      <condition>
+       <negated>N</negated>
+       <operator>OR</operator>
+       <conditions>
+        <condition>
+         <negated>N</negated>
+         <leftvalue>Tipo</leftvalue>
+         <function>&#x3d;</function>
+         <rightvalue/>
+         <value><name>constant</name><type>String</type><text>Gasolina 98</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>         </condition>
+        <condition>
+         <negated>N</negated>
+         <operator>OR</operator>
+         <leftvalue>Tipo</leftvalue>
+         <function>&#x3d;</function>
+         <rightvalue/>
+         <value><name>constant</name><type>String</type><text>Gasoleo Agricola</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>         </condition>
+        </conditions>
+       </condition>
+      </conditions>
+     </condition>
+    </conditions>
    </condition>
   <condition>
    <negated>N</negated>
@@ -871,7 +907,7 @@
                <leftvalue>CC</leftvalue>
                <function>&#x3e;</function>
                <rightvalue/>
-               <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>               </condition>
+               <value><name>constant</name><type>Integer</type><text>0</text><length>11</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>               </condition>
               <condition>
                <negated>N</negated>
                <operator>AND</operator>
