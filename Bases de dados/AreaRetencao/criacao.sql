@@ -401,13 +401,13 @@ CREATE TABLE `arearetencao`.`pos_LNeo` (
 CREATE TABLE `arearetencao`.`pos_CNeo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
-  `CustoL` FLOAT NOT NULL,
-  `TotalPago` FLOAT NOT NULL,
-  `QtdAbastecida` FLOAT NOT NULL,
+  `CustoL` DECIMAL(4,3) NOT NULL,
+  `TotalPago` DECIMAL(10,2) NOT NULL,
+  `QtdAbastecida` DECIMAL(10,2) NOT NULL,
   `Data` DATE NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
-  `CC` INT NOT NULL,
-  `NIF` INT NOT NULL,
+  `CC` INT(11) NOT NULL,
+  `NIF` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 

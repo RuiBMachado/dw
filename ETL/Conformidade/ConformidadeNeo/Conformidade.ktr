@@ -500,11 +500,6 @@
       <to>Conformidade</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
     <name>Table input</name>
@@ -582,46 +577,46 @@
         <storage_type/>
       </meta>      <meta>        <name>CustoL</name>
         <rename>CustoL</rename>
-        <type>None</type>
+        <type>Number</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
+        <lenient_string_to_number>true</lenient_string_to_number>
         <encoding/>
-        <decimal_symbol/>
+        <decimal_symbol>4,3</decimal_symbol>
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
       </meta>      <meta>        <name>TotalPago</name>
         <rename>TotalPago</rename>
-        <type>None</type>
+        <type>Number</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
+        <lenient_string_to_number>true</lenient_string_to_number>
         <encoding/>
-        <decimal_symbol/>
+        <decimal_symbol>10,2</decimal_symbol>
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
       </meta>      <meta>        <name>QtdAbastecida</name>
         <rename>QtdAbastecida</rename>
-        <type>None</type>
+        <type>Number</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
+        <lenient_string_to_number>true</lenient_string_to_number>
         <encoding/>
-        <decimal_symbol/>
+        <decimal_symbol>10,2</decimal_symbol>
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
@@ -657,8 +652,8 @@
         <storage_type/>
       </meta>      <meta>        <name>CC</name>
         <rename>CC</rename>
-        <type>None</type>
-        <length>9</length>
+        <type>Integer</type>
+        <length>11</length>
         <precision>0</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -672,8 +667,8 @@
         <storage_type/>
       </meta>      <meta>        <name>NIF</name>
         <rename>NIF</rename>
-        <type>None</type>
-        <length>9</length>
+        <type>Integer</type>
+        <length>11</length>
         <precision>0</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -774,32 +769,6 @@
     </remotesteps>
     <GUI>
       <xloc>672</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-    </fields>    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
