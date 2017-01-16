@@ -444,7 +444,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -471,7 +471,7 @@
     <database>eurosuper</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -493,12 +493,12 @@
   <order>
     <hop>
       <from>AudVendas</from>
-      <to>pre_FactosSF</to>
+      <to>pre_FactosP1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>pre_FactosSF</from>
-      <to>Delete Row AudRental</to>
+      <from>pre_FactosP1</from>
+      <to>Delete Row AudVendas</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -535,7 +535,7 @@
     </step>
 
   <step>
-    <name>Delete Row AudRental</name>
+    <name>Delete Row AudVendas</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -545,11 +545,11 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>sakilafilms_connection</connection>
+    <connection>eurosuper</connection>
     <commit>100</commit>
     <lookup>
       <schema/>
-      <table>audrent</table>
+      <table>audVenda</table>
       <key>
         <name>Id</name>
         <field>Id</field>
@@ -572,7 +572,7 @@
     </step>
 
   <step>
-    <name>pre_FactosSF</name>
+    <name>pre_FactosP1</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -584,7 +584,7 @@
     </partitioning>
     <connection>arearetencao</connection>
     <schema/>
-    <table>pre_factossf</table>
+    <table>pre_FactosP1</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -601,48 +601,32 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>return_date</column_name>
-          <stream_name>return_date</stream_name>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>rental_date</column_name>
-          <stream_name>rental_date</stream_name>
+          <column_name>TotalPago</column_name>
+          <stream_name>TotalPago</stream_name>
         </field>
         <field>
-          <column_name>IdStore</column_name>
-          <stream_name>IdStore</stream_name>
+          <column_name>idCombustivel</column_name>
+          <stream_name>idCombustivel</stream_name>
         </field>
         <field>
-          <column_name>IdCountry</column_name>
-          <stream_name>IdCountry</stream_name>
-        </field>
-        <field>
-          <column_name>IdCity</column_name>
-          <stream_name>IdCity</stream_name>
+          <column_name>CCCliente</column_name>
+          <stream_name>CCCliente</stream_name>
         </field>
         <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
-          <column_name>DataOp</column_name>
-          <stream_name>DataOp</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
         <field>
-          <column_name>IdCustomer</column_name>
-          <stream_name>IdClient</stream_name>
-        </field>
-        <field>
-          <column_name>Source</column_name>
-          <stream_name>Fonte</stream_name>
-        </field>
-        <field>
-          <column_name>Value</column_name>
-          <stream_name>amount</stream_name>
-        </field>
-        <field>
-          <column_name>Coin</column_name>
-          <stream_name>moedaLocal</stream_name>
+          <column_name>QtdAbastecedida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -653,7 +637,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>

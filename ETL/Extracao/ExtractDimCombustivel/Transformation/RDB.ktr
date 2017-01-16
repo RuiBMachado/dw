@@ -444,7 +444,7 @@
     <database>eurosuper</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -471,7 +471,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -514,7 +514,7 @@
       <schema_name/>
     </partitioning>
     <connection>eurosuper</connection>
-    <sql>SELECT&#xa;id,&#xa;Tipo,&#xa;Preco,&#xa;Operacao,&#xa;DataOperacao,&#xa;idCombustivel&#xa;FROM audCombustivel&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, Preco&#xa;, Operacao&#xa;, DataOperacao&#xa;FROM audCombustivel&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -601,48 +601,24 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>return_date</column_name>
-          <stream_name>return_date</stream_name>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>rental_date</column_name>
-          <stream_name>rental_date</stream_name>
+          <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
         </field>
         <field>
-          <column_name>IdStore</column_name>
-          <stream_name>IdStore</stream_name>
-        </field>
-        <field>
-          <column_name>IdCountry</column_name>
-          <stream_name>IdCountry</stream_name>
-        </field>
-        <field>
-          <column_name>IdCity</column_name>
-          <stream_name>IdCity</stream_name>
+          <column_name>Preco</column_name>
+          <stream_name>Preco</stream_name>
         </field>
         <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
-          <column_name>DataOp</column_name>
-          <stream_name>DataOp</stream_name>
-        </field>
-        <field>
-          <column_name>IdCustomer</column_name>
-          <stream_name>IdClient</stream_name>
-        </field>
-        <field>
-          <column_name>Source</column_name>
-          <stream_name>Fonte</stream_name>
-        </field>
-        <field>
-          <column_name>Value</column_name>
-          <stream_name>amount</stream_name>
-        </field>
-        <field>
-          <column_name>Coin</column_name>
-          <stream_name>moedaLocal</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
     </fields>
     <cluster_schema/>
