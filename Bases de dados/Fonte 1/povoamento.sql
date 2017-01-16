@@ -11,7 +11,7 @@ delete from Cliente;
 insert into Combustivel values 
 	(1,'Gasolina 95',12,100000,1.23),
     (2,'Gasolina 98',8,90000,1.40),
-    (3,'GasolCombustiveleo',15,120000,1.12),
+    (3,'Gasoleo',15,120000,1.12),
     (4,'Gasoleo Agricola',4,70000,0.87);
 
 insert into cliente values 
