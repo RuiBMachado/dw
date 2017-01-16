@@ -1,13 +1,21 @@
 use `eurosuper`;
+SET SQL_SAFE_UPDATES = 0;
 
-insert into combustivel values 
+delete from CupaoDesconto;
+
+delete from Venda;
+delete from Combustivel;
+delete from Cliente;
+
+
+insert into Combustivel values 
 	(1,'Gasolina 95',12,100000,1.23),
     (2,'Gasolina 98',8,90000,1.40),
-    (3,'Gasoleo',15,120000,1.12),
+    (3,'GasolCombustiveleo',15,120000,1.12),
     (4,'Gasoleo Agricola',4,70000,0.87);
 
 insert into cliente values 
-	(13901961,'Roberto','Carlos',210492631,3),
+	(13901961,'Ridoberto','Carlos',210492631,3),
 	(13932552,'Xavier','Rodrigues',219077634,6),
 	(13932554,'Tomas','Santos',219089734,12),
     (13987552,'Francisco','Souto',216357634,15),
@@ -40,7 +48,7 @@ insert into CupaoDesconto values
     
     
 insert into Venda values
-	(1,'Manha', 'Alberto Costa', 25.00, 0, '2016-03-20',26.34, 1, 13985427),
+	(1,'Manha', 'Alberto Costa', 25.00, 0,'2016-03-20',26.34, 1, 13985427),
     (2,'Manha', 'Alberto Costa', 20.00, 1, '2016-03-20',19.74, 2, 13977814),
     (3,'Tarde', 'Renato Moreira', 30.00, 0, '2016-04-12',32.14, 1, 13956335),
     (4,'Noite', 'Maria dos Santos', 50.00, 1, '2016-04-14', 49.35, 4, 13985427),
@@ -53,15 +61,14 @@ insert into Venda values
     (11,'Tarde', 'Renato Moreira', 45.00, 0, '2016-05-19', 47.12, 1, 13933467),
 	(12,'Tarde', 'Renato Moreira', 47.34, 1, '2016-05-19', 46.34, 1, 13956335),
     (13,'Noite', 'Maria dos Santos', 40.00, 1, '2016-05-19', 39.65, 3, 13932552),
-    (14,'Noite', 'Maria dos Santos', 10.00, 0, '2016-05-19', 10.54, 2, NULL),
+    -- (14,'Noite', 'Maria dos Santos', 10.00, 0, '2016-05-19', 10.54, 2, NULL),
     (15,'Noite', 'Maria dos Santos', 50.00, 0, '2016-05-19', 51.84, 4, 13985427),
     (16,'Manha', 'Alberto Costa', 15.00, 0, '2016-05-22', 15.57, 3, 13925331),
-    (17,'Manha', 'Alberto Costa', 20.00, 0, '2016-05-22', 20.56, 4, NULL),
-    (18,'Tarde', 'Renato Moreira', 20.00, 0, '2016-05-22', 20.74, 2, NULL),
-    (19,'Tarde', 'Renato Moreira', 25.00, 1, '2016-05-22', 24.45, 2, 13977814),
-	(20,'Noite', 'Maria dos Santos', 05.00, 0, '2016-05-22', 05.08, 3, NULL);
+  --  (17,'Manha', 'Alberto Costa', 20.00, 0, '2016-05-22', 20.56, 4, NULL),
+   -- (18,'Tarde', 'Renato Moreira', 20.00, 0, '2016-05-22', 20.74, 2, NULL),
+    (19,'Tarde', 'Renato Moreira', 25.00, 1, '2016-05-22', 24.45, 2, 13977814);
+	-- (20,'Noite', 'Maria dos Santos', 05.00, 0, '2016-05-22', 05.08, 3, NULL);
     
     
-    
-    
+   
     
