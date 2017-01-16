@@ -360,6 +360,39 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Factos` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pos_LNeo`
+-- -----------------------------------------------------
+
+CREATE TABLE `arearetencao`.`pos_LNeo` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NOT NULL,
+  `CustoL` FLOAT NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `Data` VARCHAR(10) NOT NULL,
+  `Nome` VARCHAR(45) NOT NULL,
+  `CC` INT NOT NULL,
+  `NIF` INT NOT NULL,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pos_CNeo`
+-- -----------------------------------------------------
+
+CREATE TABLE `arearetencao`.`pos_CNeo` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NOT NULL,
+  `CustoL` FLOAT NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `Data` DATE NOT NULL,
+  `Nome` VARCHAR(45) NOT NULL,
+  `CC` INT NOT NULL,
+  `NIF` INT NOT NULL,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

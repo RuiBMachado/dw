@@ -18,15 +18,15 @@ USE `Fonte2` ;
 -- Table `Fonte2`.`audNeo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
-  `id` INT NOT NULL,
-  `Tipo` VARCHAR(45) NOT NULL,
-  `CustoL` FLOAT NOT NULL,
-  `TotalPago` FLOAT NOT NULL,
-  `QtdAbastecida` FLOAT NOT NULL,
-  `Data` DATETIME NOT NULL,
-  `Nome` VARCHAR(45) NOT NULL,
-  `CC` INT NOT NULL,
-  `NIF` INT NOT NULL,
+  `id` INT,
+  `Tipo` VARCHAR(45),
+  `CustoL` FLOAT,
+  `TotalPago` FLOAT,
+  `QtdAbastecida` FLOAT,
+  `Data` VARCHAR(10),
+  `Nome` VARCHAR(45),
+  `CC` INT,
+  `NIF` INT,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
