@@ -514,7 +514,7 @@
       <schema_name/>
     </partitioning>
     <connection>eurosuper</connection>
-    <sql>SELECT&#xa;id,&#xa;QtdAbastecida,&#xa;TotalPago,&#xa;idCombustivel,&#xa;CCCliente,&#xa;Data,&#xa;Operacao,&#xa;DataOperacao&#xa; &#xa;FROM audVenda&#xa;</sql>
+    <sql>SELECT&#xa;id,&#xa;QtdAbastecedida,&#xa;TotalPago,&#xa;idCombustivel,&#xa;CCCliente,&#xa;Data,&#xa;Operacao,&#xa;DataOperacao&#xa; &#xa;FROM audVenda&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -605,6 +605,10 @@
           <stream_name>id</stream_name>
         </field>
         <field>
+          <column_name>QtdAbastecedida</column_name>
+          <stream_name>QtdAbastecedida</stream_name>
+        </field>
+        <field>
           <column_name>TotalPago</column_name>
           <stream_name>TotalPago</stream_name>
         </field>
@@ -617,16 +621,16 @@
           <stream_name>CCCliente</stream_name>
         </field>
         <field>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
+        </field>
+        <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
           <column_name>DataOperacao</column_name>
           <stream_name>DataOperacao</stream_name>
-        </field>
-        <field>
-          <column_name>QtdAbastecedida</column_name>
-          <stream_name>QtdAbastecida</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -637,7 +641,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
+      <xloc>160</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
