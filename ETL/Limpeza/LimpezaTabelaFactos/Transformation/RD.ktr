@@ -443,7 +443,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -470,27 +470,22 @@
     </hop>
     <hop>
       <from>Verificar Cliente Existe</from>
-      <to>Cliente existe&#x3f;</to>
+      <to>verifica dados</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Cliente existe&#x3f;</from>
+      <from>verifica dados</from>
       <to>qua_LFactosSF</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ComparaDatas e Valor &#x3e; 0</from>
-      <to>qua_LFactosSF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ComparaDatas e Valor &#x3e; 0</from>
+      <from>verifica dados</from>
       <to>pos_LFactosSF</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>ComparaDatas e Valor &#x3e; 0</name>
+    <name>verifica dados</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -508,54 +503,35 @@
  <conditions>
   <condition>
    <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>return_date</leftvalue>
-   <function>&#x3e;&#x3d;</function>
-   <rightvalue>rental_date</rightvalue>
+   <leftvalue>CCCliente</leftvalue>
+   <function>&#x3d;</function>
+   <rightvalue>CC</rightvalue>
    </condition>
   <condition>
    <negated>N</negated>
    <operator>AND</operator>
-   <leftvalue>Value</leftvalue>
-   <function>&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
+   <conditions>
+    <condition>
+     <negated>N</negated>
+     <leftvalue>QtdAbastecida</leftvalue>
+     <function>&#x3e;</function>
+     <rightvalue/>
+     <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
+    <condition>
+     <negated>N</negated>
+     <operator>AND</operator>
+     <conditions>
+      <condition>
+       <negated>N</negated>
+       <leftvalue>TotalPago</leftvalue>
+       <function>&#x3e;</function>
+       <rightvalue/>
+       <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>       </condition>
+      </conditions>
+     </condition>
+    </conditions>
+   </condition>
   </conditions>
- </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>353</xloc>
-      <yloc>339</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Cliente existe&#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-<send_true_to>Verificar Store existe</send_true_to>
-<send_false_to>qua_LFactosSF</send_false_to>
-    <compare>
-<condition>
- <negated>Y</negated>
- <leftvalue>CCCliente</leftvalue>
- <function>&#x3d;</function>
- <rightvalue>CC</rightvalue>
  </condition>
     </compare>
     <cluster_schema/>
@@ -708,8 +684,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>196</xloc>
-      <yloc>339</yloc>
+      <xloc>528</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -726,7 +702,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, Operacao&#xa;, DataOperacao&#xa;, TotalPago&#xa;, QtdAbastecedida&#xa;, idCombustivel&#xa;, CCCliente&#xa;, Data&#xa;FROM pre_FactosP1&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, idCombustivel&#xd;&#xa;, CCCliente&#xd;&#xa;, Data&#xd;&#xa;FROM pre_factosp1&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -824,8 +800,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>353</xloc>
-      <yloc>207</yloc>
+      <xloc>352</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

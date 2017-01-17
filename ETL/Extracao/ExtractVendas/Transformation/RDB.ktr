@@ -584,7 +584,7 @@
     </partitioning>
     <connection>arearetencao</connection>
     <schema/>
-    <table>pre_FactosP1</table>
+    <table>pre_factosp1</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -641,7 +641,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>176</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>

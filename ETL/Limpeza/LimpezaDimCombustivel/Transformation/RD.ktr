@@ -444,7 +444,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
