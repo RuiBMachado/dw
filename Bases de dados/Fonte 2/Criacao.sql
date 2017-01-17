@@ -35,3 +35,13 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- Insert
+DELIMITER $$
+CREATE TRIGGER NEOInsert AFTER INSERT on Fonte2.audNeo
+FOR EACH ROW
+  BEGIN
+  INSERT INTO Fonte2.audNeo (id,Tipo,CustoL,TotalPago,QtdAbastecida,Data,Nome,CC,NIF,DataOperacao) 
+  VALUES (new.Tipo,new.CustoL,new.TotalPago,new.QtdAbastecida,new.Data,new.Nome,new.CC,new.NIF,now());
+END $$
