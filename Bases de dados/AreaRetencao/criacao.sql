@@ -395,10 +395,10 @@ CREATE TABLE `arearetencao`.`pos_LNeo` (
   ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `arearetencao`.`pos_CNeo`
+-- Table `arearetencao`.`pos_ConfNeo`
 -- -----------------------------------------------------
 
-CREATE TABLE `arearetencao`.`pos_CNeo` (
+CREATE TABLE `arearetencao`.`pos_ConfNeo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   `CustoL` DECIMAL(4,3) NOT NULL,
