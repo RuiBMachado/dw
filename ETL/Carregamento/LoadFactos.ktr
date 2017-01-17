@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>carregamento</name>
+    <name>Load</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,16 +427,16 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2016&#x2f;01&#x2f;26 11&#x3a;33&#x3a;12.425</created_date>
+    <created_date>2016&#x2f;01&#x2f;27 13&#x3a;58&#x3a;26.009</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2016&#x2f;01&#x2f;26 11&#x3a;33&#x3a;12.425</modified_date>
+    <modified_date>2016&#x2f;01&#x2f;27 13&#x3a;58&#x3a;26.009</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>arearetencao</name>
+    <name>area_connection</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
@@ -463,7 +463,7 @@
     </attributes>
   </connection>
   <connection>
-    <name>datawarehouse</name>
+    <name>DW_Connec</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
@@ -481,7 +481,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -491,83 +491,23 @@
   </connection>
   <order>
     <hop>
-      <from>Data existe &#x3f;</from>
-      <to>Dummy &#x28;do nothing&#x29;</to>
+      <from>Select values</from>
+      <to>TFFinanceira</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Verifica se Data existe</from>
-      <to>Data existe &#x3f;</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>pos_Calendario</from>
-      <to>Verifica se Data existe</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Data existe &#x3f;</from>
+      <from>pos_Factos</from>
       <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>DimCalendario</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Dummy &#x28;do nothing&#x29;</from>
-      <to>Delete Row pos_Calendario</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DimCalendario</from>
-      <to>Delete Row pos_Calendario</to>
+      <from>TFFinanceira</from>
+      <to>Delete Row pos_Factos</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Data existe &#x3f;</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-<send_true_to>Dummy &#x28;do nothing&#x29;</send_true_to>
-<send_false_to>Select values</send_false_to>
-    <compare>
-<condition>
- <negated>Y</negated>
- <leftvalue>result</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>-1</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>300</xloc>
-      <yloc>124</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete Row pos_Calendario</name>
+    <name>Delete Row pos_Factos</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -577,32 +517,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>arearetencao</connection>
+    <connection>area_connection</connection>
     <commit>100</commit>
     <lookup>
       <schema/>
-      <table>pos_calendario</table>
+      <table>pos_Factos</table>
       <key>
-        <name>Data</name>
-        <field>Data</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Mes</name>
-        <field>Mes</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Ano</name>
-        <field>Ano</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>DiaSemana</name>
-        <field>DiaSemana</field>
+        <name>id</name>
+        <field>id</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
@@ -615,93 +537,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>DimCalendario</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>datawarehouse</connection>
-    <schema/>
-    <table>DIM_Calendario</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>Data</column_name>
-          <stream_name>Data</stream_name>
-        </field>
-        <field>
-          <column_name>Mes</column_name>
-          <stream_name>Mes</stream_name>
-        </field>
-        <field>
-          <column_name>Ano</column_name>
-          <stream_name>Ano</stream_name>
-        </field>
-        <field>
-          <column_name>DiaSemana</column_name>
-          <stream_name>DiaSemana</stream_name>
-        </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>25</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>421</xloc>
-      <yloc>124</yloc>
+      <xloc>416</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -717,19 +554,40 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>      <field>        <name>Data</name>
+    <fields>      <field>        <name>id</name>
         <rename/>
-      </field>      <field>        <name>Mes</name>
+      </field>      <field>        <name>DataOperacao</name>
         <rename/>
-      </field>      <field>        <name>Ano</name>
+      </field>      <field>        <name>DataInsercao</name>
         <rename/>
-      </field>      <field>        <name>DiaSemana</name>
+      </field>      <field>        <name>Operacao</name>
         <rename/>
-      </field>      <field>        <name>result</name>
+      </field>      <field>        <name>IdCliente</name>
+        <rename/>
+      </field>      <field>        <name>IdCombustivel</name>
+        <rename/>
+      </field>      <field>        <name>ValorPago</name>
+        <rename/>
+      </field>      <field>        <name>QtdAbastecida</name>
         <rename/>
       </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>Data</name>
-        <rename>Data</rename>
+      <meta>        <name>DataInsercao</name>
+        <rename>DataInsercao</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>DataOperacao</name>
+        <rename>DataOperacao</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -751,15 +609,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>299</xloc>
-      <yloc>25</yloc>
+      <xloc>197</xloc>
+      <yloc>81</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Unique rows</name>
-    <type>UniqueRowsByHashSet</type>
+    <name>TFFinanceira</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -768,58 +626,57 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-      <store_values>N</store_values>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>Data</name>
-        </field>      </fields>    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>410</xloc>
-      <yloc>25</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Verifica se Data existe</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>datawarehouse</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>DIM_Calendario</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Data</name>
-        <field>Data</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>Ano</name>
-        <rename>result</rename>
-        <default>-1</default>
-        <type>Integer</type>
-      </value>
-    </lookup>
+    <connection>DW_Connec</connection>
+    <schema/>
+    <table>TFVenda</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
+        </field>
+        <field>
+          <column_name>DataInsercao</column_name>
+          <stream_name>DataInsercao</stream_name>
+        </field>
+        <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
+        </field>
+        <field>
+          <column_name>IdCliente</column_name>
+          <stream_name>IdCliente</stream_name>
+        </field>
+        <field>
+          <column_name>IdCombustivel</column_name>
+          <stream_name>IdCombustivel</stream_name>
+        </field>
+        <field>
+          <column_name>ValorPago</column_name>
+          <stream_name>ValorPago</stream_name>
+        </field>
+        <field>
+          <column_name>QtdAbastecida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
+        </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -828,14 +685,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>180</xloc>
-      <yloc>124</yloc>
+      <xloc>304</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>pos_Calendario</name>
+    <name>pos_Factos</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -845,8 +702,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>arearetencao</connection>
-    <sql>SELECT&#xa;  Data&#xa;, Mes&#xa;, Ano&#xa;, DiaSemana&#xa;FROM pos_Calendario&#xa;</sql>
+    <connection>area_connection</connection>
+    <sql>SELECT&#xa;  id&#xa;, DataOperacao&#xa;, DataInsercao&#xa;, Operacao&#xa;, IdCliente&#xa;, IdCombustivel&#xa;, ValorPago&#xa;, QtdAbastecida&#xa;FROM pos_Factos&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -860,8 +717,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>59</xloc>
-      <yloc>124</yloc>
+      <xloc>78</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
