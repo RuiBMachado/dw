@@ -562,12 +562,6 @@
         <condition>&#x3d;</condition>
         <name2/>
       </key>
-      <key>
-        <name>result2</name>
-        <field>result2</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -659,7 +653,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to/>
+<send_true_to>Verify Name</send_true_to>
 <send_false_to>quaLClienteP1</send_false_to>
     <compare>
 <condition>
@@ -689,13 +683,6 @@
      <rightvalue/>
      <value><name>constant</name><type>Integer</type><text>9999999</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
     </conditions>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue/>
-   <function>&#x3d;</function>
-   <rightvalue/>
    </condition>
   </conditions>
  </condition>
@@ -920,10 +907,6 @@
         <field>
           <column_name>DataOperacao</column_name>
           <stream_name>DataOperacao</stream_name>
-        </field>
-        <field>
-          <column_name>result2</column_name>
-          <stream_name>result2</stream_name>
         </field>
     </fields>
     <cluster_schema/>
