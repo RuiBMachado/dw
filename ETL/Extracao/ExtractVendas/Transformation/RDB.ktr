@@ -605,8 +605,8 @@
           <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>QtdAbastecedida</column_name>
-          <stream_name>QtdAbastecedida</stream_name>
+          <column_name>QtdAbastecida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
         </field>
         <field>
           <column_name>TotalPago</column_name>

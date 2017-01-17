@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_FactosP1` (
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   `DataOperacao` DATETIME NOT NULL,
   `TotalPago` FLOAT NOT NULL,
-  `QtdAbastedida` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
   `idCombustivel` INT NOT NULL,
   `CCCliente` INT NOT NULL,
   `Data` DATETIME NOT NULL,
