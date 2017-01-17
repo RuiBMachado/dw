@@ -565,22 +565,16 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>equi_cliente</table>
+      <table>pos_lclientep1</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>CCCliente</name>
-        <field>CCCliente</field>
+        <field>CC</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
       <value>
         <name>CC</name>
         <rename>CC</rename>
@@ -768,8 +762,8 @@
           <stream_name>TotalPago</stream_name>
         </field>
         <field>
-          <column_name>QtdAbastecedida</column_name>
-          <stream_name>QtdAbastecedida</stream_name>
+          <column_name>QtdAbastecida</column_name>
+          <stream_name>QtdAbastecida</stream_name>
         </field>
         <field>
           <column_name>idCombustivel</column_name>
@@ -782,14 +776,6 @@
         <field>
           <column_name>Data</column_name>
           <stream_name>Data</stream_name>
-        </field>
-        <field>
-          <column_name>id_1</column_name>
-          <stream_name>id_1</stream_name>
-        </field>
-        <field>
-          <column_name>CC</column_name>
-          <stream_name>CC</stream_name>
         </field>
     </fields>
     <cluster_schema/>
