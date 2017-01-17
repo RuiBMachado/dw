@@ -444,7 +444,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -471,7 +471,7 @@
     <database>eurosuper</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -514,7 +514,7 @@
       <schema_name/>
     </partitioning>
     <connection>eurosuper</connection>
-    <sql>SELECT&#xa;id,&#xa;QtdAbastecedida,&#xa;TotalPago,&#xa;idCombustivel,&#xa;CCCliente,&#xa;Data,&#xa;Operacao,&#xa;DataOperacao&#xa; &#xa;FROM audVenda&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, TotalPago&#xd;&#xa;, idCombustivel&#xd;&#xa;, CCCliente&#xd;&#xa;, Data&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;FROM audvenda&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
