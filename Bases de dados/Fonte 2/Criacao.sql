@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
   `Nome` VARCHAR(45),
   `CC` INT,
   `NIF` INT,
+  `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
