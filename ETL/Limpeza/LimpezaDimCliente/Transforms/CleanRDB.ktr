@@ -674,14 +674,14 @@
      <leftvalue>CC</leftvalue>
      <function>&#x3e;</function>
      <rightvalue/>
-     <value><name>constant</name><type>Integer</type><text>1000000</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
+     <value><name>constant</name><type>Integer</type><text>10000000</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
     <condition>
      <negated>N</negated>
      <operator>AND</operator>
      <leftvalue>CC</leftvalue>
      <function>&#x3c;</function>
      <rightvalue/>
-     <value><name>constant</name><type>Integer</type><text>9999999</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
+     <value><name>constant</name><type>Integer</type><text>99999999</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
     </conditions>
    </condition>
   </conditions>
@@ -720,13 +720,6 @@
  <conditions>
   <condition>
    <negated>N</negated>
-   <leftvalue>result</leftvalue>
-   <function>TRUE</function>
-   <rightvalue/>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
    <leftvalue>result2</leftvalue>
    <function>TRUE</function>
    <rightvalue/>
