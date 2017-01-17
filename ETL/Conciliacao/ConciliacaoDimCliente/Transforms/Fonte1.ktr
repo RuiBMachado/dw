@@ -480,12 +480,12 @@
     </hop>
     <hop>
       <from>AR_posDimCliente</from>
-      <to>Delete Row pos_ConfClienteSF 3 2</to>
+      <to>Delete Row pos_ConfClienteP1 3 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>quaEquiCliente</from>
-      <to>Delete Row pos_ConfClienteSF</to>
+      <to>Delete Row pos_ConfClienteP1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -515,7 +515,7 @@
     </hop>
     <hop>
       <from>Delete</from>
-      <to>Delete Row pos_ConfClienteSF 2</to>
+      <to>Delete Row pos_ConfClienteP1 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -570,7 +570,7 @@
     </hop>
     <hop>
       <from>Update</from>
-      <to>Delete Row pos_ConfClienteSF 3</to>
+      <to>Delete Row pos_ConfClienteP1 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -854,7 +854,7 @@
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>Sk</name>
+        <name>SK</name>
         <field>id</field>
         <condition>&#x3d;</condition>
         <name2/>
@@ -948,7 +948,7 @@
     </step>
 
   <step>
-    <name>Delete Row pos_ConfClienteSF</name>
+    <name>Delete Row pos_ConfClienteP1</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -985,7 +985,7 @@
     </step>
 
   <step>
-    <name>Delete Row pos_ConfClienteSF 2</name>
+    <name>Delete Row pos_ConfClienteP1 2</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -1022,7 +1022,7 @@
     </step>
 
   <step>
-    <name>Delete Row pos_ConfClienteSF 3</name>
+    <name>Delete Row pos_ConfClienteP1 3</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -1059,7 +1059,7 @@
     </step>
 
   <step>
-    <name>Delete Row pos_ConfClienteSF 3 2</name>
+    <name>Delete Row pos_ConfClienteP1 3 2</name>
     <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
@@ -1450,19 +1450,12 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>CC</name>
-        <rename/>
       </field>      <field>        <name>Nome</name>
-        <rename/>
       </field>      <field>        <name>NIF</name>
-        <rename/>
       </field>      <field>        <name>Operacao</name>
-        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-        <rename/>
       </field>      <field>        <name>SK</name>
-        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
