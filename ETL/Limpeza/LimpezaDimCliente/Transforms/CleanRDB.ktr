@@ -490,16 +490,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Test CC</from>
-      <to>CC Validator</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>CC Validator</from>
-      <to>Verify Name</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>quaLClienteP1</from>
       <to>Delete pre_ClienteP1</to>
       <enabled>Y</enabled>
@@ -514,44 +504,12 @@
       <to>Test Results</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Test CC</from>
+      <to>Verify Name</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>CC Validator</name>
-    <type>MailValidator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <emailfield>CC</emailfield>
-    <resultfieldname>result</resultfieldname>
-    <ResultAsString>N</ResultAsString>
-    <smtpCheck>N</smtpCheck>
-    <emailValideMsg>email address is valid</emailValideMsg>
-    <emailNotValideMsg>email address is not valid</emailNotValideMsg>
-    <errorsFieldName/>
-    <timeout>0</timeout>
-    <defaultSMTP/>
-    <emailSender>noreply&#x40;domain.com</emailSender>
-    <defaultSMTPField/>
-    <isdynamicDefaultSMTP>N</isdynamicDefaultSMTP>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>331</xloc>
-      <yloc>153</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
   <step>
     <name>Delete pre_ClienteP1</name>
     <type>Delete</type>
@@ -569,8 +527,44 @@
       <schema/>
       <table>pre_ClienteP1</table>
       <key>
-        <name>Id</name>
-        <field>Id</field>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CC</name>
+        <field>CC</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Nome</name>
+        <field>Nome</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>NIF</name>
+        <field>NIF</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Operacao</name>
+        <field>Operacao</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DataOperacao</name>
+        <field>DataOperacao</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>result2</name>
+        <field>result2</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
@@ -633,13 +627,19 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
+        <rename/>
       </field>      <field>        <name>CC</name>
+        <rename/>
       </field>      <field>        <name>Nome</name>
+        <rename/>
       </field>      <field>        <name>NIF</name>
+        <rename/>
       </field>      <field>        <name>Operacao</name>
+        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-      </field>      <field>        <name>result</name>
+        <rename/>
       </field>      <field>        <name>result2</name>
+        <rename/>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>    <cluster_schema/>
     <remotesteps>
@@ -649,8 +649,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>253</yloc>
+      <xloc>592</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -666,14 +666,45 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>CC Validator</send_true_to>
+<send_true_to/>
 <send_false_to>quaLClienteP1</send_false_to>
     <compare>
 <condition>
- <negated>Y</negated>
- <leftvalue>CC</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>Y</negated>
+   <leftvalue>CC</leftvalue>
+   <function>IS NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <conditions>
+    <condition>
+     <negated>N</negated>
+     <leftvalue>CC</leftvalue>
+     <function>&#x3e;</function>
+     <rightvalue/>
+     <value><name>constant</name><type>Integer</type><text>1000000</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
+    <condition>
+     <negated>N</negated>
+     <operator>AND</operator>
+     <leftvalue>CC</leftvalue>
+     <function>&#x3c;</function>
+     <rightvalue/>
+     <value><name>constant</name><type>Integer</type><text>9999999</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
+    </conditions>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue/>
+   <function>&#x3d;</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
  </condition>
     </compare>
     <cluster_schema/>
@@ -684,8 +715,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>209</xloc>
-      <yloc>154</yloc>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -720,13 +751,6 @@
    <function>TRUE</function>
    <rightvalue/>
    </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>result3</leftvalue>
-   <function>TRUE</function>
-   <rightvalue/>
-   </condition>
   </conditions>
  </condition>
     </compare>
@@ -738,8 +762,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>707</xloc>
-      <yloc>155</yloc>
+      <xloc>672</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -813,40 +837,28 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>IdCustomer</column_name>
-          <stream_name>IdCustomer</stream_name>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>first_name</column_name>
-          <stream_name>first_name</stream_name>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
         </field>
         <field>
-          <column_name>last_name</column_name>
-          <stream_name>last_name</stream_name>
+          <column_name>Nome</column_name>
+          <stream_name>Nome</stream_name>
         </field>
         <field>
-          <column_name>email</column_name>
-          <stream_name>email</stream_name>
+          <column_name>NIF</column_name>
+          <stream_name>NIF</stream_name>
         </field>
         <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
-          <column_name>DataOp</column_name>
-          <stream_name>DataOp</stream_name>
-        </field>
-        <field>
-          <column_name>Cidade</column_name>
-          <stream_name>Cidade</stream_name>
-        </field>
-        <field>
-          <column_name>Pais</column_name>
-          <stream_name>Pais</stream_name>
-        </field>
-        <field>
-          <column_name>DataReg</column_name>
-          <stream_name>DataReg</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -893,40 +905,32 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>IdCustomer</column_name>
-          <stream_name>IdCustomer</stream_name>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>first_name</column_name>
-          <stream_name>first_name</stream_name>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
         </field>
         <field>
-          <column_name>last_name</column_name>
-          <stream_name>last_name</stream_name>
+          <column_name>Nome</column_name>
+          <stream_name>Nome</stream_name>
         </field>
         <field>
-          <column_name>email</column_name>
-          <stream_name>email</stream_name>
+          <column_name>NIF</column_name>
+          <stream_name>NIF</stream_name>
         </field>
         <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
-          <column_name>DataOp</column_name>
-          <stream_name>DataOp</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
         <field>
-          <column_name>Cidade</column_name>
-          <stream_name>Cidade</stream_name>
-        </field>
-        <field>
-          <column_name>Pais</column_name>
-          <stream_name>Pais</stream_name>
-        </field>
-        <field>
-          <column_name>DataReg</column_name>
-          <stream_name>DataReg</stream_name>
+          <column_name>result2</column_name>
+          <stream_name>result2</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -937,8 +941,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>328</xloc>
-      <yloc>253</yloc>
+      <xloc>320</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

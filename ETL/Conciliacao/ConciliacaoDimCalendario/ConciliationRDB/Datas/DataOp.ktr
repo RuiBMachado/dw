@@ -443,7 +443,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted </password>
+    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -484,7 +484,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>pos_ConfCalendarioSF</from>
+      <from>pos_ConfCalendarioP1</from>
       <to>Unique rows</to>
       <enabled>Y</enabled>
     </hop>
@@ -593,8 +593,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>406</xloc>
-      <yloc>65</yloc>
+      <xloc>416</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -628,8 +628,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>403</xloc>
-      <yloc>159</yloc>
+      <xloc>416</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -783,21 +783,21 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>pos_calendario</table>
+      <table>pos_Calendario</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>DataOp</name>
+        <name>Data</name>
         <field>Data</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>Ano</name>
-        <rename>result</rename>
+        <name>Data</name>
+        <rename>Data</rename>
         <default>-1</default>
-        <type>Integer</type>
+        <type>Date</type>
       </value>
     </lookup>
     <cluster_schema/>
@@ -808,7 +808,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
+      <xloc>288</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -883,7 +883,7 @@
     </step>
 
   <step>
-    <name>pos_ConfCalendarioSF</name>
+    <name>pos_ConfCalendarioP1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -894,7 +894,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT&#xd;&#xa;  Id&#xd;&#xa;, Operacao&#xd;&#xa;, DataOp&#xd;&#xa;, DataInicio&#xd;&#xa;, DataFim&#xd;&#xa;FROM pos_confcalendariosf&#xd;&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Operacao&#xa;, DataOperacao&#xa;, Data&#xa;FROM pos_ConfCalendarioP1&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

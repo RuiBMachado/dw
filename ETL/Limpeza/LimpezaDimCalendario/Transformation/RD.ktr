@@ -506,15 +506,13 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>      <field>        <name>Id</name>
+    <fields>      <field>        <name>id</name>
         <rename/>
       </field>      <field>        <name>Operacao</name>
         <rename/>
-      </field>      <field>        <name>DataOp</name>
+      </field>      <field>        <name>DataOperacao</name>
         <rename/>
-      </field>      <field>        <name>rental_date</name>
-        <rename/>
-      </field>      <field>        <name>return_date</name>
+      </field>      <field>        <name>Data</name>
         <rename/>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>Data</name>
@@ -542,43 +540,6 @@
     <GUI>
       <xloc>192</xloc>
       <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete Row pre_CalendarioP1</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>pre_CalendarioP1</table>
-      <key>
-        <name>Id</name>
-        <field>Id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -619,6 +580,43 @@
     </step>
 
   <step>
+    <name>Delete Row pre_CalendarioP1</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema/>
+      <table>pre_CalendarioP1</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>pos_LCalendarioP1</name>
     <type>TableOutput</type>
     <description/>
@@ -648,20 +646,20 @@
     <return_field/>
     <fields>
         <field>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
         <field>
-          <column_name>DataOp</column_name>
-          <stream_name>DataOp</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
         <field>
-          <column_name>rental_date</column_name>
-          <stream_name>rental_date</stream_name>
-        </field>
-        <field>
-          <column_name>return_date</column_name>
-          <stream_name>return_date</stream_name>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
         </field>
     </fields>
     <cluster_schema/>
