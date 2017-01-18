@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema Fonte2
 -- -----------------------------------------------------
 
@@ -18,30 +21,38 @@ USE `Fonte2` ;
 -- Table `Fonte2`.`audNeo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
-  `id` INT AUTO_INCREMENT,
-  `Tipo` VARCHAR(45),
-  `CustoL` FLOAT,
-  `TotalPago` FLOAT,
-  `QtdAbastecida` FLOAT,
-  `Data` VARCHAR(10),
-  `Nome` VARCHAR(45),
-  `CC` INT,
-  `NIF` INT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `CustoL` FLOAT NULL DEFAULT NULL,
+  `TotalPago` FLOAT NULL DEFAULT NULL,
+  `QtdAbastecida` FLOAT NULL DEFAULT NULL,
+  `Data` VARCHAR(10) NULL DEFAULT NULL,
+  `Nome` VARCHAR(45) NULL DEFAULT NULL,
+  `CC` INT(11) NULL DEFAULT NULL,
+  `NIF` INT(11) NULL DEFAULT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
+USE `Fonte2`;
+
+DELIMITER $$
+USE `Fonte2`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `Fonte2`.`NEOInsert`
+AFTER INSERT ON `Fonte2`.`audNeo`
+FOR EACH ROW
+BEGIN
+  INSERT INTO Fonte2.audNeo (id,Tipo,CustoL,TotalPago,QtdAbastecida,Data,Nome,CC,NIF,DataOperacao) 
+  VALUES (new.Tipo,new.CustoL,new.TotalPago,new.QtdAbastecida,new.Data,new.Nome,new.CC,new.NIF,'I',now());
+END$$
+
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
--- Insert
-DELIMITER $$
-CREATE TRIGGER NEOInsert AFTER INSERT on Fonte2.audNeo
-FOR EACH ROW
-  BEGIN
-  INSERT INTO Fonte2.audNeo (id,Tipo,CustoL,TotalPago,QtdAbastecida,Data,Nome,CC,NIF,DataOperacao) 
-  VALUES (new.Tipo,new.CustoL,new.TotalPago,new.QtdAbastecida,new.Data,new.Nome,new.CC,new.NIF,now());
-END $$

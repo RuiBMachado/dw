@@ -374,6 +374,8 @@ CREATE TABLE `arearetencao`.`qua_LNeo` (
   `Nome` VARCHAR(45),
   `CC` INT,
   `NIF` INT,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 
@@ -391,6 +393,8 @@ CREATE TABLE `arearetencao`.`pos_LNeo` (
   `Nome` VARCHAR(45) NOT NULL,
   `CC` INT NOT NULL,
   `NIF` INT NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 
@@ -408,6 +412,8 @@ CREATE TABLE `arearetencao`.`pos_ConfNeo` (
   `Nome` VARCHAR(45) NOT NULL,
   `CC` INT(11) NOT NULL,
   `NIF` INT(11) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 
