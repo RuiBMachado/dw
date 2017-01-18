@@ -74,7 +74,7 @@ ENGINE = InnoDB;
 -- Table `arearetencao`.`equi_Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Cliente` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `CC` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -237,7 +237,7 @@ ENGINE = InnoDB;
 -- Table `arearetencao`.`equi_Combustivel`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Combustivel` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;

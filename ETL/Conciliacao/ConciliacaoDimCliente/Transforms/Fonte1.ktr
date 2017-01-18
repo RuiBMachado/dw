@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -1248,7 +1249,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>Filtra OP</send_true_to>
+<send_true_to>Verify SF key insert</send_true_to>
 <send_false_to>insere SK</send_false_to>
     <compare>
 <condition>
@@ -1336,8 +1337,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>592</yloc>
+      <xloc>496</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

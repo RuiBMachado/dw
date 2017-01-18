@@ -842,7 +842,7 @@
     </remotesteps>
     <GUI>
       <xloc>432</xloc>
-      <yloc>544</yloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1094,8 +1094,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>368</yloc>
+      <xloc>416</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1247,7 +1247,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
+      <xloc>304</xloc>
       <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1313,11 +1313,17 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
+        <rename/>
       </field>      <field>        <name>Tipo</name>
+        <rename/>
       </field>      <field>        <name>Preco</name>
+        <rename/>
       </field>      <field>        <name>Operacao</name>
+        <rename/>
       </field>      <field>        <name>DataOperacao</name>
+        <rename/>
       </field>      <field>        <name>SK</name>
+        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1328,8 +1334,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>416</yloc>
+      <xloc>288</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1661,8 +1667,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>464</yloc>
+      <xloc>432</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>SF</name>
+    <name>Fonte1</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2016&#x2f;01&#x2f;27 15&#x3a;56&#x3a;46.116</created_date>
+    <created_date>2017&#x2f;01&#x2f;18 09&#x3a;13&#x3a;54.613</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2016&#x2f;01&#x2f;27 15&#x3a;56&#x3a;46.116</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <modified_date>2017&#x2f;01&#x2f;18 09&#x3a;13&#x3a;54.613</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -454,7 +454,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -463,158 +463,9 @@
     </attributes>
   </connection>
   <order>
-    <hop>
-      <from>pre_FactosP1</from>
-      <to>Verificar Cliente Existe</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Verificar Cliente Existe</from>
-      <to>verifica dados</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>verifica dados</from>
-      <to>qua_LFactosSF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>verifica dados</from>
-      <to>pos_LFactosSF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>pos_LFactosSF</from>
-      <to>Delete</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
-    <name>Verificar Cliente Existe</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>pos_lclientep1</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>CCCliente</name>
-        <field>CC</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>CC</name>
-        <rename>CC</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>pos_LFactosSF</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <schema/>
-    <table>pos_LFactosP1</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>Operacao</column_name>
-          <stream_name>Operacao</stream_name>
-        </field>
-        <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
-        </field>
-        <field>
-          <column_name>TotalPago</column_name>
-          <stream_name>TotalPago</stream_name>
-        </field>
-        <field>
-          <column_name>QtdAbastecida</column_name>
-          <stream_name>QtdAbastecida</stream_name>
-        </field>
-        <field>
-          <column_name>idCombustivel</column_name>
-          <stream_name>idCombustivel</stream_name>
-        </field>
-        <field>
-          <column_name>CCCliente</column_name>
-          <stream_name>CCCliente</stream_name>
-        </field>
-        <field>
-          <column_name>Data</column_name>
-          <stream_name>Data</stream_name>
-        </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>pre_FactosP1</name>
+    <name>pos_ConfFactosP1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -625,7 +476,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, idCombustivel&#xd;&#xa;, CCCliente&#xd;&#xa;, Data&#xd;&#xa;FROM pre_factosp1&#xd;&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Operacao&#xa;, DataOperacao&#xa;, DataInsercao&#xa;, IdCliente&#xa;, IdCombustivel&#xa;, ValorPago&#xa;, QtdAbastecida&#xa;FROM pos_ConfFactosP1&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -639,15 +490,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>96</yloc>
+      <xloc>112</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>qua_LFactosSF</name>
-    <type>TableOutput</type>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -656,157 +507,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>arearetencao</connection>
-    <schema/>
-    <table>qua_LFactosP1</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>Operacao</column_name>
-          <stream_name>Operacao</stream_name>
-        </field>
-        <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
-        </field>
-        <field>
-          <column_name>TotalPago</column_name>
-          <stream_name>TotalPago</stream_name>
-        </field>
-        <field>
-          <column_name>QtdAbastecida</column_name>
-          <stream_name>QtdAbastecida</stream_name>
-        </field>
-        <field>
-          <column_name>idCombustivel</column_name>
-          <stream_name>idCombustivel</stream_name>
-        </field>
-        <field>
-          <column_name>CCCliente</column_name>
-          <stream_name>CCCliente</stream_name>
-        </field>
-        <field>
-          <column_name>Data</column_name>
-          <stream_name>Data</stream_name>
-        </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>verifica dados</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-<send_true_to>pos_LFactosSF</send_true_to>
-<send_false_to>qua_LFactosSF</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>CCCliente</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue>CC</rightvalue>
-   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <conditions>
-    <condition>
-     <negated>N</negated>
-     <leftvalue>QtdAbastecida</leftvalue>
-     <function>&#x3e;</function>
-     <rightvalue/>
-     <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
-    <condition>
-     <negated>N</negated>
-     <operator>AND</operator>
-     <conditions>
-      <condition>
-       <negated>N</negated>
-       <leftvalue>TotalPago</leftvalue>
-       <function>&#x3e;</function>
-       <rightvalue/>
-       <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>       </condition>
-      </conditions>
-     </condition>
-    </conditions>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <commit>100</commit>
+    <connection/>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>pre_FactosP1</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
+      <table>Tabela Lookup</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -816,8 +526,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>208</yloc>
+      <xloc>256</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
