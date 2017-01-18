@@ -603,8 +603,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>89</xloc>
-      <yloc>154</yloc>
+      <xloc>64</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -683,6 +683,13 @@
      <rightvalue/>
      <value><name>constant</name><type>Integer</type><text>99999999</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>     </condition>
     </conditions>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>AND</operator>
+   <leftvalue>NIF</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
    </condition>
   </conditions>
  </condition>
