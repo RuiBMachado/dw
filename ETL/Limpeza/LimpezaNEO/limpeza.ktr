@@ -516,6 +516,11 @@
       <to>delete AudNeo</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>delete AudNeo</from>
+      <to>delete AudNeoFinal</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>AudNeo</name>
@@ -529,7 +534,7 @@
       <schema_name/>
     </partitioning>
     <connection>fonte2</connection>
-    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Tipo&#xd;&#xa;, CustoL&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, Data&#xd;&#xa;, Nome&#xd;&#xa;, CC&#xd;&#xa;, NIF&#xd;&#xa;FROM audneo&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Tipo&#xd;&#xa;, CustoL&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, Data&#xd;&#xa;, Nome&#xd;&#xa;, CC&#xd;&#xa;, NIF&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;FROM audneofinal&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -564,58 +569,10 @@
     <commit>100</commit>
     <lookup>
       <schema/>
-      <table>qua_neo</table>
+      <table>qua_lneo</table>
       <key>
         <name>id</name>
         <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Tipo</name>
-        <field>Tipo</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>CustoL</name>
-        <field>CustoL</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>TotalPago</name>
-        <field>TotalPago</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>QtdAbastecida</name>
-        <field>QtdAbastecida</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Data</name>
-        <field>Data</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Nome</name>
-        <field>Nome</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>CC</name>
-        <field>CC</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>NIF</name>
-        <field>NIF</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
@@ -647,7 +604,7 @@
     </partitioning>
     <connection>aRetencao</connection>
     <schema/>
-    <table>qua_neo</table>
+    <table>qua_lneo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -836,10 +793,34 @@
               <condition>
                <negated>N</negated>
                <operator>AND</operator>
-               <leftvalue>NIF</leftvalue>
-               <function>&#x3e;</function>
-               <rightvalue/>
-               <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>               </condition>
+               <conditions>
+                <condition>
+                 <negated>N</negated>
+                 <leftvalue>NIF</leftvalue>
+                 <function>&#x3e;</function>
+                 <rightvalue/>
+                 <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value>                 </condition>
+                <condition>
+                 <negated>N</negated>
+                 <operator>AND</operator>
+                 <conditions>
+                  <condition>
+                   <negated>N</negated>
+                   <leftvalue>Operacao</leftvalue>
+                   <function>&#x3d;</function>
+                   <rightvalue/>
+                   <value><name>constant</name><type>String</type><text>I</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>                   </condition>
+                  <condition>
+                   <negated>N</negated>
+                   <operator>AND</operator>
+                   <leftvalue>DataOperacao</leftvalue>
+                   <function>IS NOT NULL</function>
+                   <rightvalue/>
+                   </condition>
+                  </conditions>
+                 </condition>
+                </conditions>
+               </condition>
               </conditions>
              </condition>
             </conditions>
@@ -864,6 +845,80 @@
     </remotesteps>
     <GUI>
       <xloc>352</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>delete AudNeo</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>fonte2</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema/>
+      <table>audneo</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>delete AudNeoFinal</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>fonte2</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema/>
+      <table>audneofinal</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -934,6 +989,14 @@
           <column_name>NIF</column_name>
           <stream_name>NIF</stream_name>
         </field>
+        <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
+        </field>
+        <field>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
+        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -944,43 +1007,6 @@
     </remotesteps>
     <GUI>
       <xloc>544</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>delete AudNeo</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>fonte2</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>audneo</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>

@@ -374,8 +374,8 @@ CREATE TABLE `arearetencao`.`qua_LNeo` (
   `Nome` VARCHAR(45),
   `CC` INT,
   `NIF` INT,
-  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D'),
+  `DataOperacao` DATE,
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 

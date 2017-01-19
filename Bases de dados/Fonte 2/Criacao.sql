@@ -30,6 +30,23 @@ CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
   `Nome` VARCHAR(45) NULL DEFAULT NULL,
   `CC` INT(11) NULL DEFAULT NULL,
   `NIF` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Table `Fonte2`.`audNeoFinal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeoFinal` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `CustoL` FLOAT NULL DEFAULT NULL,
+  `TotalPago` FLOAT NULL DEFAULT NULL,
+  `QtdAbastecida` FLOAT NULL DEFAULT NULL,
+  `Data` VARCHAR(10) NULL DEFAULT NULL,
+  `Nome` VARCHAR(45) NULL DEFAULT NULL,
+  `CC` INT(11) NULL DEFAULT NULL,
+  `NIF` INT(11) NULL DEFAULT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   `DataOperacao` DATE NOT NULL,
   PRIMARY KEY (`id`))
@@ -37,6 +54,8 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 USE `Fonte2`;
+
+drop trigger if exists NEOInsert;
 
 DELIMITER $$
 USE `Fonte2`$$
@@ -46,7 +65,7 @@ TRIGGER `Fonte2`.`NEOInsert`
 AFTER INSERT ON `Fonte2`.`audNeo`
 FOR EACH ROW
 BEGIN
-  INSERT INTO Fonte2.audNeo (id,Tipo,CustoL,TotalPago,QtdAbastecida,Data,Nome,CC,NIF,DataOperacao) 
+  INSERT INTO Fonte2.audNeoFinal (Tipo, CustoL, TotalPago, QtdAbastecida, Data, Nome, CC, Nif, Operacao, DataOperacao) 
   VALUES (new.Tipo,new.CustoL,new.TotalPago,new.QtdAbastecida,new.Data,new.Nome,new.CC,new.NIF,'I',now());
 END$$
 
