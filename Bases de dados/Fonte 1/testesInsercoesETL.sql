@@ -1,4 +1,4 @@
--- SET SQL_SAFE_UPDATES = 0;
+set SQL_SAFE_UPDATES = 0;
 
 -- Tabelas de auditoria
 use eurosuper;
@@ -8,15 +8,17 @@ delete from Venda;
 delete from Combustivel;
 delete from Cliente;
 
-select * from audCalendario;
-select * from audVenda;
-select * from audCombustivel;
-select * from audCliente;
 
 delete from audCalendario;
 delete from audVenda;
 delete from audCombustivel;
 delete from audCliente;
+
+
+select * from audCalendario;
+select * from audVenda;
+select * from audCombustivel;
+select * from audCliente;
 
 
 use arearetencao;
@@ -61,7 +63,8 @@ delete from pos_ConfClienteP1;
 -- Tabelas de conciliacao
 use arearetencao;
 
-
+select * from pos_factos;
+select * from DataUpdate;
 
 select * from pos_CalendarioP1;
 select * from pos_DimCliente;
@@ -73,6 +76,7 @@ select * from pos_DimCombustivel_H;
 select * from equi_Cliente;
 select * from equi_Combustivel;
 
+delete from pos_Factos;
 
 delete from pos_Calendario;
 delete from pos_DimCliente;
@@ -84,6 +88,17 @@ delete from pos_DimCombustivel_H;
 delete from equi_Cliente;
 delete from equi_Combustivel;
 
+-- Apaga dados do dw
+use DW;
+delete from DIM_Calendario;
+delete from DIM_Cliente;
+delete from DIM_Cliente_H;
+delete from DIM_Combustivel;
+delete from DIM_Combustivel_H;
+delete from TFVenda;
+
+
+
 
 -- Testes update de clientes
 
@@ -92,3 +107,12 @@ use eurosuper;
 update  cliente 
 	set UNome = 'toto'
     where cc=13901961;
+
+-- Testes update de combustivel
+
+use eurosuper;
+
+update  combustivel 
+	set custoLitro = 1.70
+    where Tipo ='Gasolina 95' ;
+
