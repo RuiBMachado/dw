@@ -713,10 +713,6 @@
           <column_name>NIF</column_name>
           <stream_name>O_NIF</stream_name>
         </field>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>O_CC</stream_name>
-        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -1141,7 +1137,7 @@
   <condition>
    <negated>N</negated>
    <leftvalue>DataOperacao</leftvalue>
-   <function>&#x3e;</function>
+   <function>&#x3e;&#x3d;</function>
    <rightvalue>O_Data</rightvalue>
    </condition>
   <condition>
@@ -1249,7 +1245,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>Verify SF key insert</send_true_to>
+<send_true_to>Filtra OP</send_true_to>
 <send_false_to>insere SK</send_false_to>
     <compare>
 <condition>
