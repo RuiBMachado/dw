@@ -1003,7 +1003,7 @@
   <condition>
    <negated>N</negated>
    <leftvalue>DataOperacao</leftvalue>
-   <function>&#x3e;</function>
+   <function>&#x3e;&#x3d;</function>
    <rightvalue>O_Data</rightvalue>
    </condition>
   <condition>
@@ -1313,17 +1313,11 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>Tipo</name>
-        <rename/>
       </field>      <field>        <name>Preco</name>
-        <rename/>
       </field>      <field>        <name>Operacao</name>
-        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-        <rename/>
       </field>      <field>        <name>SK</name>
-        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1366,10 +1360,6 @@
         <condition>&#x3d;</condition>
         <name2/>
         </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        </value>
       <value>
         <name>Operacao</name>
         <rename>Operacao</rename>
@@ -1574,10 +1564,6 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
-        </field>
         <field>
           <column_name>Preco</column_name>
           <stream_name>O_Preco</stream_name>
