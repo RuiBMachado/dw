@@ -443,7 +443,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86adf8290a448f7298a8ab7c2</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -454,7 +454,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -463,11 +463,6 @@
     </attributes>
   </connection>
   <order>
-    <hop>
-      <from>Calcular Calendario</from>
-      <to>Semestre</to>
-      <enabled>Y</enabled>
-    </hop>
     <hop>
       <from>DataOp existe &#x3f;</from>
       <to>Calcular Calendario</to>
@@ -494,7 +489,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Semestre</from>
+      <from>Calcular Calendario</from>
       <to>pos_Calendario</to>
       <enabled>Y</enabled>
     </hop>
@@ -511,24 +506,9 @@
       <schema_name/>
     </partitioning>
     <calculation>
-      <field_name>Trimestre</field_name>
-      <calc_type>QUARTER_OF_DATE</calc_type>
-      <field_a>DataOp</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
       <field_name>Ano</field_name>
       <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>DataOp</field_a>
+      <field_a>DataOperacao</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -543,7 +523,7 @@
     <calculation>
       <field_name>Mes</field_name>
       <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>DataOp</field_a>
+      <field_a>DataOperacao</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -556,24 +536,9 @@
       <currency_symbol/>
     </calculation>
     <calculation>
-      <field_name>Semana</field_name>
-      <calc_type>WEEK_OF_YEAR</calc_type>
-      <field_a>DataOp</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>Semestre</field_name>
-      <calc_type>QUARTER_OF_DATE</calc_type>
-      <field_a>DataOp</field_a>
+      <field_name>DiaSemana</field_name>
+      <calc_type>DAY_OF_WEEK</calc_type>
+      <field_a>DataOperacao</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -660,84 +625,6 @@
     </step>
 
   <step>
-    <name>Semestre</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <field_to_use>Mes</field_to_use>
-    <target_field>SemestreNovo</target_field>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>2</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>3</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>4</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>5</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>6</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>7</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>8</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>9</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>10</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>11</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>12</source_value>
-        <target_value>2</target_value>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>551</xloc>
-      <yloc>65</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>Unique rows</name>
     <type>UniqueRowsByHashSet</type>
     <description/>
@@ -751,7 +638,7 @@
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>DataOp</name>
+    <fields>      <field>        <name>DataOperacao</name>
         </field>      </fields>    <cluster_schema/>
     <remotesteps>
       <input>
@@ -760,8 +647,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>160</yloc>
+      <xloc>176</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -808,7 +695,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>240</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -844,8 +731,20 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>Trimestre</column_name>
-          <stream_name>Trimestre</stream_name>
+          <column_name>id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
+        </field>
+        <field>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
+        </field>
+        <field>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
         </field>
         <field>
           <column_name>Ano</column_name>
@@ -856,16 +755,8 @@
           <stream_name>Mes</stream_name>
         </field>
         <field>
-          <column_name>Data</column_name>
-          <stream_name>DataOp</stream_name>
-        </field>
-        <field>
-          <column_name>NSemana</column_name>
-          <stream_name>Semana</stream_name>
-        </field>
-        <field>
-          <column_name>Semestre</column_name>
-          <stream_name>SemestreNovo</stream_name>
+          <column_name>DiaSemana</column_name>
+          <stream_name>DiaSemana</stream_name>
         </field>
     </fields>
     <cluster_schema/>
