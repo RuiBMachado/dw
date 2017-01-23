@@ -1424,6 +1424,10 @@
           <column_name>Tipo</column_name>
           <stream_name>Tipo</stream_name>
         </field>
+        <field>
+          <column_name>Fonte1</column_name>
+          <stream_name>IdCombustivel</stream_name>
+        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -1451,7 +1455,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, Preco&#xa;, Operacao&#xa;, DataOperacao&#xa;FROM pos_ConfCombustivelP1&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, Preco&#xa;, Operacao&#xa;, DataOperacao&#xa;, IdCombustivel&#xa;FROM pos_ConfCombustivelP1&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1625,6 +1629,14 @@
           <stream_name>id</stream_name>
         </field>
         <field>
+          <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
+        </field>
+        <field>
+          <column_name>Preco</column_name>
+          <stream_name>Preco</stream_name>
+        </field>
+        <field>
           <column_name>Operacao</column_name>
           <stream_name>Operacao</stream_name>
         </field>
@@ -1633,12 +1645,8 @@
           <stream_name>DataOperacao</stream_name>
         </field>
         <field>
-          <column_name>Preco</column_name>
-          <stream_name>Preco</stream_name>
-        </field>
-        <field>
-          <column_name>Tipo</column_name>
-          <stream_name>Tipo</stream_name>
+          <column_name>IdCombustivel</column_name>
+          <stream_name>IdCombustivel</stream_name>
         </field>
         <field>
           <column_name>SK</column_name>

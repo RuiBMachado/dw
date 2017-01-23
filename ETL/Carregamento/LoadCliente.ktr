@@ -468,10 +468,10 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>DW - TouristGroup</database>
+    <database>DW</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted </password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -492,36 +492,6 @@
   </connection>
   <order>
     <hop>
-      <from>Add constants</from>
-      <to>Database lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database lookup</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Dummy &#x28;do nothing&#x29;</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>arDimCliente</from>
-      <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Filter insert</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter insert</from>
       <to>DW_DimCliente</to>
       <enabled>Y</enabled>
@@ -541,78 +511,12 @@
       <to>Insert &#x2f; Update</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>arDimCliente</from>
+      <to>Filter insert</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>arDimCliente</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>AreaRetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, CC&#xa;, Nome&#xa;, NIF&#xa;, Operacao&#xa;, DataOperacao&#xa;FROM pos_DimCliente&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>47</xloc>
-      <yloc>56</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>LUp</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>167</xloc>
-      <yloc>56</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
   <step>
     <name>DW_DimCliente</name>
     <type>TableOutput</type>
@@ -626,7 +530,7 @@
     </partitioning>
     <connection>DW</connection>
     <schema/>
-    <table>DimCliente</table>
+    <table>DIM_Cliente</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -643,20 +547,20 @@
     <return_field/>
     <fields>
         <field>
+          <column_name>Id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
+        </field>
+        <field>
           <column_name>Nome</column_name>
           <stream_name>Nome</stream_name>
         </field>
         <field>
-          <column_name>Cidade</column_name>
-          <stream_name>Cidade</stream_name>
-        </field>
-        <field>
-          <column_name>Pais</column_name>
-          <stream_name>Pais</stream_name>
-        </field>
-        <field>
-          <column_name>Nr</column_name>
-          <stream_name>IdCliente</stream_name>
+          <column_name>NIF</column_name>
+          <stream_name>NIF</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -668,54 +572,6 @@
     </remotesteps>
     <GUI>
       <xloc>824</xloc>
-      <yloc>55</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>AreaRetencao</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>Data</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>LUp</name>
-        <field>Id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>LastCUpdate</name>
-        <rename>LastCUpdate</rename>
-        <default/>
-        <type>Timestamp</type>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>273</xloc>
       <yloc>55</yloc>
       <draw>Y</draw>
     </GUI>
@@ -740,8 +596,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>508</xloc>
-      <yloc>159</yloc>
+      <xloc>400</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -817,41 +673,6 @@
     </step>
 
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-<send_true_to>Filter insert</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
-    <compare>
-<condition>
- <negated>Y</negated>
- <leftvalue>DataOp</leftvalue>
- <function>&#x3c;&#x3d;</function>
- <rightvalue>LastCUpdate</rightvalue>
- </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>508</xloc>
-      <yloc>55</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>Insert &#x2f; Update</name>
     <type>InsertUpdate</type>
     <description/>
@@ -867,10 +688,10 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>DimCliente</table>
+      <table>DIM_Cliente</table>
       <key>
-        <name>IdCliente</name>
-        <field>Nr</field>
+        <name>id</name>
+        <field>Id</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
@@ -880,18 +701,18 @@
         <update>Y</update>
       </value>
       <value>
-        <name>Cidade</name>
-        <rename>Cidade</rename>
+        <name>CC</name>
+        <rename>CC</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Pais</name>
-        <rename>Pais</rename>
+        <name>NIF</name>
+        <rename>NIF</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Nr</name>
-        <rename>IdCliente</rename>
+        <name>Id</name>
+        <rename>id</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -910,8 +731,8 @@
     </step>
 
   <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
+    <name>arDimCliente</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -920,49 +741,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>      <field>        <name>Id</name>
-      </field>      <field>        <name>IdCliente</name>
-      </field>      <field>        <name>Nome</name>
-      </field>      <field>        <name>Email</name>
-      </field>      <field>        <name>Operacao</name>
-      </field>      <field>        <name>DataOp</name>
-      </field>      <field>        <name>Cidade</name>
-      </field>      <field>        <name>Pais</name>
-      </field>      <field>        <name>LUp</name>
-      </field>      <field>        <name>LastCUpdate</name>
-      </field>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>LUp</name>
-      </remove>      <meta>        <name>DataOp</name>
-        <rename>DataOp</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>LastCUpdate</name>
-        <rename>LastCUpdate</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>    <cluster_schema/>
+    <connection>AreaRetencao</connection>
+    <sql>SELECT&#xa;  id&#xa;, CC&#xa;, Nome&#xa;, NIF&#xa;, Operacao&#xa;, DataOperacao&#xa;FROM pos_DimCliente&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -970,8 +756,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>398</xloc>
-      <yloc>56</yloc>
+      <xloc>400</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

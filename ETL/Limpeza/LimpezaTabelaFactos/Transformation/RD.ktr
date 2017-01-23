@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>SF</name>
+    <name>Fonte1</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -470,22 +471,47 @@
     </hop>
     <hop>
       <from>Verificar Cliente Existe</from>
-      <to>verifica dados</to>
+      <to>cliente&#x3f;</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>verifica dados</from>
-      <to>qua_LFactosSF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>verifica dados</from>
-      <to>pos_LFactosSF</to>
+      <from>cliente&#x3f;</from>
+      <to>qua_LFactosP1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>pos_LFactosSF</from>
       <to>Delete</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>cliente&#x3f;</from>
+      <to>Verificar Combustivel Existe&#x3f;</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Verificar Combustivel Existe&#x3f;</from>
+      <to>Combustivel</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Combustivel</from>
+      <to>VerificaDados</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Combustivel</from>
+      <to>qua_LFactosP1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>VerificaDados</from>
+      <to>qua_LFactosP1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>VerificaDados</from>
+      <to>pos_LFactosSF</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -520,8 +546,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>208</yloc>
+      <xloc>320</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -543,19 +569,19 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>pos_lclientep1</table>
+      <table>equi_Cliente</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>CCCliente</name>
-        <field>CC</field>
+        <field>Fonte1</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>CC</name>
-        <rename>CC</rename>
+        <name>ID</name>
+        <rename>SkCliente</rename>
         <default/>
         <type>Integer</type>
       </value>
@@ -625,11 +651,11 @@
         </field>
         <field>
           <column_name>idCombustivel</column_name>
-          <stream_name>idCombustivel</stream_name>
+          <stream_name>SKComb</stream_name>
         </field>
         <field>
           <column_name>CCCliente</column_name>
-          <stream_name>CCCliente</stream_name>
+          <stream_name>SkCliente</stream_name>
         </field>
         <field>
           <column_name>Data</column_name>
@@ -644,8 +670,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>144</yloc>
+      <xloc>608</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -683,7 +709,7 @@
     </step>
 
   <step>
-    <name>qua_LFactosSF</name>
+    <name>qua_LFactosP1</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -743,6 +769,14 @@
           <column_name>Data</column_name>
           <stream_name>Data</stream_name>
         </field>
+        <field>
+          <column_name>SkCliente</column_name>
+          <stream_name>SkCliente</stream_name>
+        </field>
+        <field>
+          <column_name>SKComb</column_name>
+          <stream_name>SKComb</stream_name>
+        </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -759,7 +793,125 @@
     </step>
 
   <step>
-    <name>verifica dados</name>
+    <name>cliente&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Verificar Combustivel Existe&#x3f;</send_true_to>
+<send_false_to>qua_LFactosP1</send_false_to>
+    <compare>
+<condition>
+ <negated>Y</negated>
+ <leftvalue>SkCliente</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>-1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Verificar Combustivel Existe&#x3f;</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>equi_Combustivel</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>idCombustivel</name>
+        <field>Fonte1</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ID</name>
+        <rename>SKComb</rename>
+        <default>-1</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Combustivel</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>VerificaDados</send_true_to>
+<send_false_to>qua_LFactosP1</send_false_to>
+    <compare>
+<condition>
+ <negated>Y</negated>
+ <leftvalue>SKComb</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>-1</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>VerificaDados</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -770,17 +922,17 @@
       <schema_name/>
     </partitioning>
 <send_true_to>pos_LFactosSF</send_true_to>
-<send_false_to>qua_LFactosSF</send_false_to>
+<send_false_to>qua_LFactosP1</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
  <conditions>
   <condition>
    <negated>N</negated>
-   <leftvalue>CCCliente</leftvalue>
-   <function>&#x3d;</function>
-   <rightvalue>CC</rightvalue>
-   </condition>
+   <leftvalue>TotalPago</leftvalue>
+   <function>&#x3e;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
   <condition>
    <negated>N</negated>
    <operator>AND</operator>
@@ -791,18 +943,6 @@
      <function>&#x3e;</function>
      <rightvalue/>
      <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>     </condition>
-    <condition>
-     <negated>N</negated>
-     <operator>AND</operator>
-     <conditions>
-      <condition>
-       <negated>N</negated>
-       <leftvalue>TotalPago</leftvalue>
-       <function>&#x3e;</function>
-       <rightvalue/>
-       <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>       </condition>
-      </conditions>
-     </condition>
     </conditions>
    </condition>
   </conditions>
@@ -816,8 +956,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>96</yloc>
+      <xloc>672</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

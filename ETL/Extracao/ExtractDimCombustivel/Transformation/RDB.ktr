@@ -514,7 +514,7 @@
       <schema_name/>
     </partitioning>
     <connection>eurosuper</connection>
-    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, Preco&#xa;, Operacao&#xa;, DataOperacao&#xa;FROM audCombustivel&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, Preco&#xa;, Operacao&#xa;, DataOperacao&#xa;, IdCombustivel&#xa;FROM audCombustivel&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -619,6 +619,10 @@
         <field>
           <column_name>DataOperacao</column_name>
           <stream_name>DataOperacao</stream_name>
+        </field>
+        <field>
+          <column_name>IdCombustivel</column_name>
+          <stream_name>IdCombustivel</stream_name>
         </field>
     </fields>
     <cluster_schema/>

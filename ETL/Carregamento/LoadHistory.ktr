@@ -468,7 +468,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>tabelafactos</database>
+    <database>DW</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>

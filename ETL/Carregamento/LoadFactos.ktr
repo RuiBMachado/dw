@@ -467,7 +467,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>tabelafactos</database>
+    <database>DW</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
@@ -492,7 +492,7 @@
   <order>
     <hop>
       <from>Select values</from>
-      <to>TFFinanceira</to>
+      <to>TFVendas</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -501,7 +501,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TFFinanceira</from>
+      <from>TFVendas</from>
       <to>Delete Row pos_Factos</to>
       <enabled>Y</enabled>
     </hop>
@@ -616,7 +616,7 @@
     </step>
 
   <step>
-    <name>TFFinanceira</name>
+    <name>TFVendas</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -645,20 +645,8 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
-        </field>
-        <field>
           <column_name>DataInsercao</column_name>
           <stream_name>DataInsercao</stream_name>
-        </field>
-        <field>
-          <column_name>Operacao</column_name>
-          <stream_name>Operacao</stream_name>
         </field>
         <field>
           <column_name>IdCliente</column_name>
