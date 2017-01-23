@@ -572,7 +572,7 @@
         <rename/>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>DataInsercao</name>
-        <rename>DataInsercao</rename>
+        <rename>Data</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -645,15 +645,15 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>DataInsercao</column_name>
-          <stream_name>DataInsercao</stream_name>
+          <column_name>Data</column_name>
+          <stream_name>Data</stream_name>
         </field>
         <field>
-          <column_name>IdCliente</column_name>
+          <column_name>DIM_Cliente_id</column_name>
           <stream_name>IdCliente</stream_name>
         </field>
         <field>
-          <column_name>IdCombustivel</column_name>
+          <column_name>DIM_Combustivel_id</column_name>
           <stream_name>IdCombustivel</stream_name>
         </field>
         <field>
@@ -673,7 +673,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>288</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>

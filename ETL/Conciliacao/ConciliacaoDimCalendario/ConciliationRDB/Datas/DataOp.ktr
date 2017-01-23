@@ -464,18 +464,18 @@
   </connection>
   <order>
     <hop>
-      <from>DataOp existe &#x3f;</from>
+      <from>Data existe &#x3f;</from>
       <to>Calcular Calendario</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DataOp existe &#x3f;</from>
+      <from>Data existe &#x3f;</from>
       <to>Dummy &#x28;do nothing&#x29;</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Verifica se DataOp existe</from>
-      <to>DataOp existe &#x3f;</to>
+      <from>Verifica se Data existe</from>
+      <to>Data existe &#x3f;</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -485,7 +485,7 @@
     </hop>
     <hop>
       <from>Unique rows</from>
-      <to>Verifica se DataOp existe</to>
+      <to>Verifica se Data existe</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -508,7 +508,7 @@
     <calculation>
       <field_name>Ano</field_name>
       <calc_type>YEAR_OF_DATE</calc_type>
-      <field_a>DataOperacao</field_a>
+      <field_a>Data</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -523,7 +523,7 @@
     <calculation>
       <field_name>Mes</field_name>
       <calc_type>MONTH_OF_DATE</calc_type>
-      <field_a>DataOperacao</field_a>
+      <field_a>Data</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -538,7 +538,7 @@
     <calculation>
       <field_name>DiaSemana</field_name>
       <calc_type>DAY_OF_WEEK</calc_type>
-      <field_a>DataOperacao</field_a>
+      <field_a>Data</field_a>
       <field_b/>
       <field_c/>
       <value_type>Integer</value_type>
@@ -565,7 +565,7 @@
     </step>
 
   <step>
-    <name>DataOp existe &#x3f;</name>
+    <name>Data existe &#x3f;</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -583,7 +583,7 @@
  <leftvalue>result</leftvalue>
  <function>&#x3d;</function>
  <rightvalue/>
- <value><name>constant</name><type>String</type><text>-1</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+ <value><name>constant</name><type>Number</type><text>-1.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;</mask></value> </condition>
     </compare>
     <cluster_schema/>
     <remotesteps>
@@ -638,7 +638,7 @@
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>DataOperacao</name>
+    <fields>      <field>        <name>Data</name>
         </field>      </fields>    <cluster_schema/>
     <remotesteps>
       <input>
@@ -654,7 +654,7 @@
     </step>
 
   <step>
-    <name>Verifica se DataOp existe</name>
+    <name>Verifica se Data existe</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -681,10 +681,10 @@
         <name2/>
       </key>
       <value>
-        <name>Data</name>
-        <rename>Data</rename>
+        <name>Ano</name>
+        <rename>result</rename>
         <default>-1</default>
-        <type>Date</type>
+        <type>Number</type>
       </value>
     </lookup>
     <cluster_schema/>
@@ -730,18 +730,6 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>Operacao</column_name>
-          <stream_name>Operacao</stream_name>
-        </field>
-        <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
-        </field>
         <field>
           <column_name>Data</column_name>
           <stream_name>Data</stream_name>

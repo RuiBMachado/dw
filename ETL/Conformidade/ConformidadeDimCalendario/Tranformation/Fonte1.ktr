@@ -490,7 +490,7 @@
     <commit>100</commit>
     <lookup>
       <schema/>
-      <table>pos_lcalendariosf</table>
+      <table>pos_LCalendarioP1</table>
       <key>
         <name>Id</name>
         <field>Id</field>

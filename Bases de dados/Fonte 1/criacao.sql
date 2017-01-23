@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCalendario` (
   `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 47
+AUTO_INCREMENT = 273
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCliente` (
   `NIF` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 447
+AUTO_INCREMENT = 784
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -128,9 +128,10 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCombustivel` (
   `Preco` DECIMAL(4,3) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   `DataOperacao` DATETIME NOT NULL,
+  `IdCombustivel` INT(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 167
+AUTO_INCREMENT = 279
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -148,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audVenda` (
   `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 44
+AUTO_INCREMENT = 268
 DEFAULT CHARACTER SET = utf8;
 
 USE `eurosuper`;
@@ -194,8 +195,8 @@ TRIGGER `eurosuper`.`dw_AudCombustivelDelete`
 AFTER DELETE ON `eurosuper`.`Combustivel`
 FOR EACH ROW
 BEGIN
-  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao) 
-  VALUES (old.Tipo,old.custoLitro,'D',now());
+  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao,idCombustivel) 
+  VALUES (old.Tipo,old.custoLitro,'D',now(),old.idCombustivel);
 END$$
 
 USE `eurosuper`$$
@@ -205,8 +206,8 @@ TRIGGER `eurosuper`.`dw_AudCombustivelInsert`
 AFTER INSERT ON `eurosuper`.`Combustivel`
 FOR EACH ROW
 BEGIN
-  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao) 
-  VALUES (new.Tipo,new.custoLitro,'I',now());
+  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao,idCombustivel) 
+  VALUES (new.Tipo,new.custoLitro,'I',now(),new.idCombustivel);
 END$$
 
 USE `eurosuper`$$
@@ -216,8 +217,8 @@ TRIGGER `eurosuper`.`dw_AudCombustivelUpdate`
 AFTER UPDATE ON `eurosuper`.`Combustivel`
 FOR EACH ROW
 BEGIN
-  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao) 
-  VALUES (new.Tipo,new.custoLitro,'U',now());
+  INSERT INTO eurosuper.audCombustivel (Tipo,Preco,Operacao,DataOperacao,idCombustivel) 
+  VALUES (new.Tipo,new.custoLitro,'U',now(),new.idCombustivel);
 END$$
 
 USE `eurosuper`$$
@@ -227,16 +228,6 @@ TRIGGER `eurosuper`.`dw_AudVendaInsert`
 AFTER INSERT ON `eurosuper`.`Venda`
 FOR EACH ROW
 BEGIN
-    DECLARE v_data Datetime;
-    DECLARE v_CCCliente INT;
-    DECLARE v_idCombustivel INT;
-    DECLARE v_QtdAbastecida FLOAT;
-    DECLARE v_TotalPago FLOAT;
-            
-    Select A.`data`, A.QtdAbastecida, A.TotalPago,A.idCombustivel,A.CCCliente 
-        INTO v_data, v_QtdAbastecida, v_TotalPago, v_idCombustivel, v_CCCliente
-      From Venda as A
-      where v_CCCliente is not null; 
       
    INSERT INTO eurosuper.audCalendario (`Data`, Operacao, DataOperacao) 
     VALUES (new.data, 'I', now()); 

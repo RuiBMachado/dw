@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>ExtractGeral</name>
+  <name>carregamento</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;01&#x2f;27 12&#x3a;05&#x3a;39.900</created_date>
+  <created_date>2017&#x2f;01&#x2f;23 19&#x3a;20&#x3a;38.915</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;01&#x2f;27 12&#x3a;05&#x3a;39.900</modified_date>
+  <modified_date>2017&#x2f;01&#x2f;23 19&#x3a;20&#x3a;38.915</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -304,8 +303,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>16</xloc>
-      <yloc>272</yloc>
+      <xloc>144</xloc>
+      <yloc>192</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -314,16 +313,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>240</yloc>
+      <xloc>752</xloc>
+      <yloc>278</yloc>
     </entry>
     <entry>
-      <name>ExtractionVendas</name>
+      <name>CarregamentoCalendario</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractVendas&#x2f;Transformation&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadCalendario.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -349,16 +348,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>64</yloc>
+      <xloc>272</xloc>
+      <yloc>192</yloc>
     </entry>
     <entry>
-      <name>ExtractionClientes</name>
+      <name>CarregamentoCliente</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCliente&#x2f;Transforms&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadCliente.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -384,16 +383,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>144</yloc>
+      <xloc>432</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
-      <name>ExtractionCalendario</name>
+      <name>CarregamentoCombustivel</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCalendario&#x2f;Transformation&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadCombustivel.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -419,16 +418,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>224</yloc>
+      <xloc>640</xloc>
+      <yloc>160</yloc>
     </entry>
     <entry>
-      <name>ExtractionCombustivel</name>
+      <name>CarregamentoClienteH</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCombustivel&#x2f;Transformation&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadHistory.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -454,14 +453,84 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>368</yloc>
+      <xloc>288</xloc>
+      <yloc>320</yloc>
+    </entry>
+    <entry>
+      <name>CarregamentoCombH</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadHistoryComb.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>480</xloc>
+      <yloc>320</yloc>
+    </entry>
+    <entry>
+      <name>CarregamentoFactos</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Carregamento&#x2f;LoadFactos.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>304</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>ExtractionVendas</to>
+      <to>CarregamentoCalendario</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -469,8 +538,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>ExtractionVendas</from>
-      <to>Success</to>
+      <from>CarregamentoCalendario</from>
+      <to>CarregamentoCliente</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -478,35 +547,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
-      <to>ExtractionClientes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>ExtractionCalendario</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>ExtractionCombustivel</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>ExtractionClientes</from>
-      <to>Success</to>
+      <from>CarregamentoCliente</from>
+      <to>CarregamentoCombustivel</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -514,8 +556,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ExtractionCalendario</from>
-      <to>Success</to>
+      <from>CarregamentoCombustivel</from>
+      <to>CarregamentoClienteH</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -523,7 +565,25 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ExtractionCombustivel</from>
+      <from>CarregamentoClienteH</from>
+      <to>CarregamentoCombH</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CarregamentoCombH</from>
+      <to>CarregamentoFactos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CarregamentoFactos</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

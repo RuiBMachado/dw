@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>ExtractGeral</name>
+  <name>conformidade</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;01&#x2f;27 12&#x3a;05&#x3a;39.900</created_date>
+  <created_date>2017&#x2f;01&#x2f;23 19&#x3a;12&#x3a;11.458</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;01&#x2f;27 12&#x3a;05&#x3a;39.900</modified_date>
+  <modified_date>2017&#x2f;01&#x2f;23 19&#x3a;12&#x3a;11.458</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -304,8 +303,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>16</xloc>
-      <yloc>272</yloc>
+      <xloc>316</xloc>
+      <yloc>212</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -314,16 +313,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>240</yloc>
+      <xloc>860</xloc>
+      <yloc>212</yloc>
     </entry>
     <entry>
-      <name>ExtractionVendas</name>
+      <name>ConformidadeCalendario</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractVendas&#x2f;Transformation&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Conformidade&#x2f;ConformidadeDimCalendario&#x2f;Tranformation&#x2f;Fonte1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -349,16 +348,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>64</yloc>
+      <xloc>556</xloc>
+      <yloc>132</yloc>
     </entry>
     <entry>
-      <name>ExtractionClientes</name>
+      <name>ConformidadeCliente</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCliente&#x2f;Transforms&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Conformidade&#x2f;ConformidadeDimCliente&#x2f;Transforms&#x2f;ConformP1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -384,16 +383,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>144</yloc>
+      <xloc>556</xloc>
+      <yloc>228</yloc>
     </entry>
     <entry>
-      <name>ExtractionCalendario</name>
+      <name>ConformidadeCombustivel</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCalendario&#x2f;Transformation&#x2f;RDB.ktr</filename>
+      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Conformidade&#x2f;ConformidadeDimcombustivel&#x2f;Transform&#x2f;CombustivelP1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -419,67 +418,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>224</yloc>
-    </entry>
-    <entry>
-      <name>ExtractionCombustivel</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x2f;Users&#x2f;Rui&#x2f;Desktop&#x2f;dw-git&#x2f;ETL&#x2f;Extracao&#x2f;ExtractDimCombustivel&#x2f;Transformation&#x2f;RDB.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>368</yloc>
+      <xloc>556</xloc>
+      <yloc>308</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>ExtractionVendas</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>ExtractionVendas</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>ExtractionClientes</to>
+      <to>ConformidadeCalendario</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -488,7 +434,7 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>ExtractionCalendario</to>
+      <to>ConformidadeCliente</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -497,7 +443,7 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>ExtractionCombustivel</to>
+      <to>ConformidadeCombustivel</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -505,7 +451,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>ExtractionClientes</from>
+      <from>ConformidadeCombustivel</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -514,7 +460,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ExtractionCalendario</from>
+      <from>ConformidadeCliente</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -523,7 +469,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>ExtractionCombustivel</from>
+      <from>ConformidadeCalendario</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

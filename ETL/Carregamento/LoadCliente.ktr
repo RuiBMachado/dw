@@ -497,11 +497,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter insert</from>
-      <to>Filter Deletes</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter Deletes</from>
       <to>Dummy &#x28;do nothing&#x29;</to>
       <enabled>Y</enabled>
@@ -514,6 +509,11 @@
     <hop>
       <from>arDimCliente</from>
       <to>Filter insert</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter insert</from>
+      <to>Filter Deletes</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -571,8 +571,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>824</xloc>
-      <yloc>55</yloc>
+      <xloc>832</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -596,8 +596,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>160</yloc>
+      <xloc>464</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -631,8 +631,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>669</xloc>
-      <yloc>159</yloc>
+      <xloc>688</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -666,8 +666,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>669</xloc>
-      <yloc>55</yloc>
+      <xloc>688</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -724,8 +724,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>825</xloc>
-      <yloc>159</yloc>
+      <xloc>880</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -756,8 +756,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>48</yloc>
+      <xloc>416</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

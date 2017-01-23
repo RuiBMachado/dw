@@ -718,10 +718,15 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>Data</name>
+        <rename/>
       </field>      <field>        <name>Mes</name>
+        <rename/>
       </field>      <field>        <name>Ano</name>
+        <rename/>
       </field>      <field>        <name>DiaSemana</name>
+        <rename/>
       </field>      <field>        <name>result</name>
+        <rename/>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>Data</name>
         <rename>Data</rename>
