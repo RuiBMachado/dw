@@ -116,6 +116,6 @@ update  cliente
 use eurosuper;
 
 update  combustivel 
-	set custoLitro = 1.70
-    where Tipo ='Gasolina 95' ;
+	set custoLitro = 5.70
+    where Tipo ='Gasolina 98' ;
 

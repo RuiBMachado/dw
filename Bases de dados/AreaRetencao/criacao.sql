@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema arearetencao
 -- -----------------------------------------------------
 
@@ -36,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Cliente` (
   `Fonte2` INT(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 61
+AUTO_INCREMENT = 482
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -50,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Combustivel` (
   `Fonte2` INT(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 28
+AUTO_INCREMENT = 161
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -89,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfClienteP1` (
   `Nome` VARCHAR(45) NOT NULL,
   `NIF` INT(11) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -103,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfCombustivelP1` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   `IdCombustivel` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -154,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente` (
   `Nome` VARCHAR(45) NOT NULL,
   `NIF` INT(11) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -168,10 +171,11 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente_H` (
   `DIM_Cliente_CC` INT(11) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `NIF` INT(11) NOT NULL,
-  `Data` DATE NOT NULL,
+  `Data` DATETIME NOT NULL,
+  `CC` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 13901964
+AUTO_INCREMENT = 13901977
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -183,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -197,9 +201,10 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel_H` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `DIM_Combustivel_id` INT(11) NOT NULL,
+  `Data` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 69
+AUTO_INCREMENT = 73
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -242,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LClienteP1` (
   `Nome` VARCHAR(45) NOT NULL,
   `NIF` INT(11) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -256,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LCombustivelP1` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   `IdCombustivel` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -320,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_ClienteP1` (
   `Nome` VARCHAR(45) NOT NULL,
   `NIF` VARCHAR(45) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -334,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_CombustivelP1` (
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(4,3) NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   `IdCombustivel` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB

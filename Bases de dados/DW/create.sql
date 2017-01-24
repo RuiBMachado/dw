@@ -47,11 +47,11 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `DW`.`DIM_Cliente_H`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DW`.`DIM_Cliente_H` (
-  `id` INT(11) NOT NULL,
-  `CC` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL DEFAULT '1',
+  `CC` INT(11) NOT NULL DEFAULT '1',
   `Nome` VARCHAR(45) NOT NULL,
-  `Data` DATE NOT NULL,
-  `NIF` INT(11) NOT NULL,
+  `Data` DATETIME NOT NULL,
+  `NIF` INT(11) NOT NULL DEFAULT '1',
   `DIM_Cliente_CC` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_DIM_Cliente_H_DIM_Cliente1_idx` (`DIM_Cliente_CC` ASC),
@@ -80,10 +80,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `DW`.`DIM_Combustivel_H`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DW`.`DIM_Combustivel_H` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `Tipo` VARCHAR(45) NOT NULL,
   `Preco` DECIMAL(10,2) NOT NULL,
-  `Data` DATE NOT NULL,
+  `Data` DATETIME NOT NULL,
   `DIM_Combustivel_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_DIM_Combustivel_H_DIM_Combustivel1_idx` (`DIM_Combustivel_id` ASC),
@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `DW`.`DIM_Combustivel_H` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
