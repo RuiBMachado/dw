@@ -11,6 +11,33 @@
   <modified_date>2017&#x2f;01&#x2f;23 19&#x3a;20&#x3a;38.915</modified_date>
     <parameters>
     </parameters>
+  <connection>
+    <name>arearetencao</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>arearetencao</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
       <job-log-table>
@@ -303,8 +330,8 @@
       <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>192</yloc>
+      <xloc>128</xloc>
+      <yloc>96</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -313,8 +340,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
-      <yloc>278</yloc>
+      <xloc>192</xloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>CarregamentoCalendario</name>
@@ -348,8 +375,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>272</xloc>
-      <yloc>192</yloc>
+      <xloc>288</xloc>
+      <yloc>96</yloc>
     </entry>
     <entry>
       <name>CarregamentoCliente</name>
@@ -384,7 +411,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>432</xloc>
-      <yloc>176</yloc>
+      <yloc>96</yloc>
     </entry>
     <entry>
       <name>CarregamentoCombustivel</name>
@@ -418,8 +445,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>640</xloc>
-      <yloc>160</yloc>
+      <xloc>736</xloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>CarregamentoClienteH</name>
@@ -453,8 +480,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>288</xloc>
-      <yloc>320</yloc>
+      <xloc>736</xloc>
+      <yloc>96</yloc>
     </entry>
     <entry>
       <name>CarregamentoCombH</name>
@@ -488,8 +515,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>320</yloc>
+      <xloc>496</xloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>CarregamentoFactos</name>
@@ -523,8 +550,40 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>640</xloc>
-      <yloc>304</yloc>
+      <xloc>352</xloc>
+      <yloc>208</yloc>
+    </entry>
+    <entry>
+      <name>UpdateDate</name>
+      <description/>
+      <type>SQL</type>
+      <sql>update DataUpdate set ultimoUpCliente &#x3d; now&#x28;&#x29; where id &#x3d; 1</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>arearetencao</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>576</xloc>
+      <yloc>96</yloc>
+    </entry>
+    <entry>
+      <name>UpdateDate 2</name>
+      <description/>
+      <type>SQL</type>
+      <sql>update DataUpdate set ultimoUpCombus &#x3d; now&#x28;&#x29; where id &#x3d; 1</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>arearetencao</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>208</yloc>
     </entry>
   </entries>
   <hops>
@@ -547,33 +606,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>CarregamentoCliente</from>
-      <to>CarregamentoCombustivel</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>CarregamentoCombustivel</from>
-      <to>CarregamentoClienteH</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>CarregamentoClienteH</from>
-      <to>CarregamentoCombH</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>CarregamentoCombH</from>
       <to>CarregamentoFactos</to>
       <from_nr>0</from_nr>
@@ -585,6 +617,51 @@
     <hop>
       <from>CarregamentoFactos</from>
       <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CarregamentoCliente</from>
+      <to>UpdateDate</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>UpdateDate</from>
+      <to>CarregamentoClienteH</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CarregamentoClienteH</from>
+      <to>CarregamentoCombustivel</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CarregamentoCombustivel</from>
+      <to>UpdateDate 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>UpdateDate 2</from>
+      <to>CarregamentoCombH</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

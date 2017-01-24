@@ -61,7 +61,6 @@ delete from pos_ConfCombustivelP1;
 delete from pos_ConfClienteP1;
 
 -- Tabelas de conciliacao
-use arearetencao;
 
 select * from pos_factos;
 select * from DataUpdate;
@@ -75,6 +74,9 @@ select * from pos_DimCombustivel_H;
 
 select * from equi_Cliente;
 select * from equi_Combustivel;
+
+use arearetencao;
+
 
 delete from pos_Factos;
 
@@ -90,12 +92,13 @@ delete from equi_Combustivel;
 
 -- Apaga dados do dw
 use DW;
+
+delete from TFVenda;
 delete from DIM_Calendario;
 delete from DIM_Cliente;
 delete from DIM_Cliente_H;
 delete from DIM_Combustivel;
 delete from DIM_Combustivel_H;
-delete from TFVenda;
 
 
 
