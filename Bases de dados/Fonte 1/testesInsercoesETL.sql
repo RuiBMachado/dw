@@ -95,10 +95,10 @@ use DW;
 
 delete from TFVenda;
 delete from DIM_Calendario;
-delete from DIM_Cliente;
 delete from DIM_Cliente_H;
-delete from DIM_Combustivel;
+delete from DIM_Cliente;
 delete from DIM_Combustivel_H;
+delete from DIM_Combustivel;
 
 
 

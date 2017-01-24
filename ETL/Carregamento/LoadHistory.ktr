@@ -493,11 +493,11 @@
   <order>
     <hop>
       <from>AR_DimClienteHistory</from>
-      <to>DW_DimCliente</to>
+      <to>DW_DimCliente_H</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DW_DimCliente</from>
+      <from>DW_DimCliente_H</from>
       <to>Delete Row pos_DimClienteH</to>
       <enabled>Y</enabled>
     </hop>
@@ -514,7 +514,7 @@
       <schema_name/>
     </partitioning>
     <connection>AreaRetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, DIM_Cliente_CC&#xa;, Nome&#xa;, NIF&#xa;, Data&#xa;FROM pos_DimCliente_H&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, DIM_Cliente_CC&#xa;, Nome&#xa;, NIF&#xa;, Data&#xa;, CC&#xa;FROM pos_DimCliente_H&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -535,7 +535,7 @@
     </step>
 
   <step>
-    <name>DW_DimCliente</name>
+    <name>DW_DimCliente_H</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -578,6 +578,10 @@
         <field>
           <column_name>Data</column_name>
           <stream_name>Data</stream_name>
+        </field>
+        <field>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
         </field>
     </fields>
     <cluster_schema/>
