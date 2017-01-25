@@ -131,6 +131,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `arearetencao`.`pos_ConfFactosP2`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfFactosP2` (
+  `id` INT(11) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATE NOT NULL,
+  `DataInsercao` DATE NOT NULL,
+  `IdCliente` INT(11) NOT NULL,
+  `Combustivel` VARCHAR(45) NOT NULL,
+  `ValorPago` DECIMAL(10,2) NOT NULL,
+  `QtdAbastecida` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `arearetencao`.`pos_ConfNeo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfNeo` (
@@ -143,6 +160,8 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfNeo` (
   `Nome` VARCHAR(45) NOT NULL,
   `CC` INT(11) NOT NULL,
   `NIF` INT(11) NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -175,7 +194,6 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente_H` (
   `CC` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 13901977
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -204,7 +222,6 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel_H` (
   `Data` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 73
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -286,6 +303,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `arearetencao`.`pos_LFactosP2`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LFactosP2` (
+  `id` INT(11) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `Combustivel` VARCHAR(45) NOT NULL,
+  `CCCliente` INT(11) NOT NULL,
+  `Data` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `arearetencao`.`pos_LNeo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LNeo` (
@@ -298,6 +332,8 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LNeo` (
   `Nome` VARCHAR(45) NOT NULL,
   `CC` INT(11) NOT NULL,
   `NIF` INT(11) NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -357,6 +393,23 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_FactosP1` (
   `QtdAbastecida` FLOAT NOT NULL,
   `idCombustivel` INT(11) NOT NULL,
   `CCCliente` INT(11) NOT NULL,
+  `Data` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `arearetencao`.`pre_FactosP2`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `arearetencao`.`pre_FactosP2` (
+  `id` INT(11) NOT NULL,
+  `Operacao` ENUM('I', 'U', 'D') NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `CCCliente` INT(11) NOT NULL,
+  `Combustivel` VARCHAR(45) NOT NULL,
   `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
