@@ -430,7 +430,7 @@
     <created_date>2017&#x2f;01&#x2f;26 14&#x3a;43&#x3a;58.584</created_date>
     <modified_user>-</modified_user>
     <modified_date>2017&#x2f;01&#x2f;26 14&#x3a;43&#x3a;58.584</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -666,7 +666,7 @@
         <name2/>
       </key>
       <value>
-        <name>id</name>
+        <name>ID</name>
         <rename>SkCliente</rename>
         <default>-1</default>
         <type>Integer</type>
@@ -710,11 +710,11 @@
       <key>
         <name>Tipo</name>
         <field>Fonte2</field>
-        <condition>&#x3d;</condition>
+        <condition>LIKE</condition>
         <name2/>
       </key>
       <value>
-        <name>ID</name>
+        <name>id</name>
         <rename>SKComb</rename>
         <default>-1</default>
         <type>Integer</type>
@@ -764,6 +764,38 @@
     </remotesteps>
     <GUI>
       <xloc>464</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>pos_ConfNeo</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, TotalPago&#xa;, QtdAbastecida&#xa;, Data&#xa;, CC&#xa;, DataOperacao&#xa;, Operacao&#xa;FROM pos_ConfNeo&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -846,38 +878,6 @@
     </step>
 
   <step>
-    <name>pos_ConfNeo</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, TotalPago&#xa;, QtdAbastecida&#xa;, Data&#xa;, CC&#xa;, DataOperacao&#xa;, Operacao&#xa;FROM pos_ConfNeo&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
     <name>qua_LFactosP1</name>
     <type>TableOutput</type>
     <description/>
@@ -888,9 +888,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>arearetencao</connection>
     <schema/>
-    <table>qua_LFactosP1</table>
+    <table>qua_LNeo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -911,12 +911,8 @@
           <stream_name>id</stream_name>
         </field>
         <field>
-          <column_name>Operacao</column_name>
-          <stream_name>Operacao</stream_name>
-        </field>
-        <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
+          <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
         </field>
         <field>
           <column_name>TotalPago</column_name>
@@ -927,16 +923,20 @@
           <stream_name>QtdAbastecida</stream_name>
         </field>
         <field>
-          <column_name>idCombustivel</column_name>
-          <stream_name>idCombustivel</stream_name>
-        </field>
-        <field>
-          <column_name>CCCliente</column_name>
-          <stream_name>CCCliente</stream_name>
-        </field>
-        <field>
           <column_name>Data</column_name>
           <stream_name>Data</stream_name>
+        </field>
+        <field>
+          <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
+        </field>
+        <field>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
+        </field>
+        <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
         </field>
     </fields>
     <cluster_schema/>

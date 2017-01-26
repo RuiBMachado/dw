@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -524,11 +525,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>quaEquiCombustivel</from>
-      <to>Delete Row pos_ConfNEO</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Insert&#x3f;</from>
       <to>Filter Insert</to>
       <enabled>Y</enabled>
@@ -539,8 +535,38 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AR_posDimCombustivel</from>
-      <to>Delete Row pos_cNEO</to>
+      <from>Add constants</from>
+      <to>Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step</from>
+      <to>Database lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup 2</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup 2</from>
+      <to>Filter Date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Date</from>
+      <to>AR_posDimCombustivelH</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Date</from>
+      <to>Dummy &#x28;do nothing&#x29; 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Insert</from>
+      <to>Block this step</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -555,9 +581,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>arearetencao</connection>
     <schema/>
-    <table>pos_DimCliente</table>
+    <table>pos_DimCombustivel</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -582,7 +608,7 @@
           <stream_name>Tipo</stream_name>
         </field>
         <field>
-          <column_name>CustoL</column_name>
+          <column_name>Preco</column_name>
           <stream_name>CustoL</stream_name>
         </field>
         <field>
@@ -605,8 +631,8 @@
     </step>
 
   <step>
-    <name>Delete Row pos_ConfNEO</name>
-    <type>Delete</type>
+    <name>AR_posDimCombustivelH</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -616,17 +642,40 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>pos_ConfNeo</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
+    <schema/>
+    <table>pos_DimCombustivel_H</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>DIM_Combustivel_id</column_name>
+          <stream_name>SK</stream_name>
+        </field>
+        <field>
+          <column_name>Tipo</column_name>
+          <stream_name>O_Tipo</stream_name>
+        </field>
+        <field>
+          <column_name>Data</column_name>
+          <stream_name>O_Data</stream_name>
+        </field>
+        <field>
+          <column_name>Preco</column_name>
+          <stream_name>O_Preco</stream_name>
+        </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -635,15 +684,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>892</xloc>
-      <yloc>476</yloc>
+      <xloc>1712</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Delete Row pos_cNEO</name>
-    <type>Delete</type>
+    <name>Add constants</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -652,17 +701,110 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <fields>
+      <field>
+        <name>Op</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>U</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1376</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Block this step</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>AR_posDimCombustivel</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>arearetencao</connection>
-    <commit>100</commit>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>pos_ConfNeo</table>
+      <table>pos_DimCombustivel</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>id</name>
+        <name>SK</name>
         <field>id</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
+      <value>
+        <name>Tipo</name>
+        <rename>O_Tipo</rename>
+        <default>Erro</default>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Preco</name>
+        <rename>O_Preco</rename>
+        <default>-1</default>
+        <type>None</type>
+      </value>
+      <value>
+        <name>DataOperacao</name>
+        <rename>O_Data</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -672,8 +814,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1244</xloc>
-      <yloc>444</yloc>
+      <xloc>1216</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -699,6 +841,78 @@
     <GUI>
       <xloc>876</xloc>
       <yloc>124</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29; 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1472</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter Date</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>AR_posDimCombustivelH</send_true_to>
+<send_false_to>Dummy &#x28;do nothing&#x29; 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>DataOperacao</leftvalue>
+   <function>&#x3e;&#x3d;</function>
+   <rightvalue>O_Data</rightvalue>
+   </condition>
+  <condition>
+   <negated>Y</negated>
+   <operator>AND</operator>
+   <leftvalue>O_Tipo</leftvalue>
+   <function>&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text>Erro</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
+  </conditions>
+ </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1504</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -919,6 +1133,7 @@
       </field>      <field>        <name>Tipo</name>
       </field>      <field>        <name>CustoL</name>
       </field>      <field>        <name>DataOperacao</name>
+      </field>      <field>        <name>Operacao</name>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>    <cluster_schema/>
     <remotesteps>
@@ -946,7 +1161,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, CustoL&#xa;, TotalPago&#xa;, QtdAbastecida&#xa;, Data&#xa;, Nome&#xa;, CC&#xa;, NIF&#xa;,DataOperacao&#xa;FROM pos_CNeo&#xa;</sql>
+    <sql>SELECT&#xa;  id&#xa;, Tipo&#xa;, CustoL&#xa;, TotalPago&#xa;, QtdAbastecida&#xa;, Data&#xa;, Nome&#xa;, CC&#xa;, NIF&#xa;, DataOperacao&#xa;, Operacao&#xa;FROM pos_ConfNeo&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -978,10 +1193,15 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
+        <rename/>
       </field>      <field>        <name>Tipo</name>
+        <rename/>
       </field>      <field>        <name>CustoL</name>
+        <rename/>
       </field>      <field>        <name>DataOperacao</name>
+        <rename/>
       </field>      <field>        <name>SK</name>
+        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1027,8 +1247,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>668</xloc>
-      <yloc>204</yloc>
+      <xloc>560</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1082,6 +1302,63 @@
     </step>
 
   <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>Y</use_batch>
+    <error_ignored>Y</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>pos_DimCombustivel</table>
+      <key>
+        <name>SK</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>Tipo</name>
+        <rename>Tipo</rename>
+        </value>
+      <value>
+        <name>Preco</name>
+        <rename>CustoL</rename>
+        </value>
+      <value>
+        <name>DataOperacao</name>
+        <rename>DataOperacao</rename>
+        </value>
+      <value>
+        <name>Operacao</name>
+        <rename>Op</rename>
+        </value>
+      </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1520</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>insere SK</name>
     <type>TableOutput</type>
     <description/>
@@ -1092,7 +1369,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>arearetencao</connection>
     <schema/>
     <table>equi_Combustivel</table>
     <commit>1000</commit>
@@ -1112,6 +1389,10 @@
     <fields>
         <field>
           <column_name>Tipo</column_name>
+          <stream_name>Tipo</stream_name>
+        </field>
+        <field>
+          <column_name>Fonte2</column_name>
           <stream_name>Tipo</stream_name>
         </field>
     </fields>
@@ -1140,7 +1421,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>arearetencao</connection>
     <schema/>
     <table>qua_equiCombustivel</table>
     <commit>1000</commit>

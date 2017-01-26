@@ -22,17 +22,19 @@ USE `Fonte2` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeo` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `Tipo` VARCHAR(45) NULL DEFAULT NULL,
-  `CustoL` FLOAT NULL DEFAULT NULL,
-  `TotalPago` FLOAT NULL DEFAULT NULL,
-  `QtdAbastecida` FLOAT NULL DEFAULT NULL,
-  `Data` VARCHAR(10) NULL DEFAULT NULL,
-  `Nome` VARCHAR(45) NULL DEFAULT NULL,
-  `CC` INT(11) NULL DEFAULT NULL,
-  `NIF` INT(11) NULL DEFAULT NULL,
+  `Tipo` VARCHAR(45) NOT NULL,
+  `CustoL` FLOAT NOT NULL,
+  `TotalPago` FLOAT NOT NULL,
+  `QtdAbastecida` FLOAT NOT NULL,
+  `Data` DATE NOT NULL,
+  `Nome` VARCHAR(45) NOT NULL,
+  `CC` INT(11) NOT NULL,
+  `NIF` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 71
 DEFAULT CHARACTER SET = utf8;
+
 
 -- -----------------------------------------------------
 -- Table `Fonte2`.`audNeoFinal`
@@ -48,14 +50,13 @@ CREATE TABLE IF NOT EXISTS `Fonte2`.`audNeoFinal` (
   `CC` INT(11) NULL DEFAULT NULL,
   `NIF` INT(11) NULL DEFAULT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
-  `DataOperacao` DATE NOT NULL,
+  `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 71
 DEFAULT CHARACTER SET = utf8;
 
 USE `Fonte2`;
-
-drop trigger if exists NEOInsert;
 
 DELIMITER $$
 USE `Fonte2`$$

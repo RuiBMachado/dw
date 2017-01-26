@@ -465,11 +465,6 @@
   </connection>
   <order>
     <hop>
-      <from>AR_posDimCliente</from>
-      <to>Delete Row pos_cNEO</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Add constants</from>
       <to>Update</to>
       <enabled>Y</enabled>
@@ -570,18 +565,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Update</from>
-      <to>Delete Row pos_ConfNeo 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>insere SK</from>
       <to>Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>quaEquiCliente</from>
-      <to>Delete Row pos_ConfNEO</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -854,117 +839,6 @@
     <GUI>
       <xloc>2080</xloc>
       <yloc>548</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete Row pos_ConfNEO</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>pos_ConfNeo</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1776</xloc>
-      <yloc>804</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete Row pos_ConfNeo 2</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>pos_ConfNeo</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2496</xloc>
-      <yloc>628</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Delete Row pos_cNEO</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>arearetencao</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>pos_ConfNeo</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2128</xloc>
-      <yloc>788</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1378,12 +1252,17 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
+        <rename/>
       </field>      <field>        <name>CC</name>
+        <rename/>
       </field>      <field>        <name>NIF</name>
-      </field>      <field>        <name>DataOperacao</name>
+        <rename/>
       </field>      <field>        <name>SK</name>
+        <rename/>
       </field>      <field>        <name>Nome</name>
+        <rename/>
       </field>      <field>        <name>DataOperacao</name>
+        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1569,6 +1448,10 @@
     <fields>
         <field>
           <column_name>CC</column_name>
+          <stream_name>CC</stream_name>
+        </field>
+        <field>
+          <column_name>Fonte2</column_name>
           <stream_name>CC</stream_name>
         </field>
     </fields>
