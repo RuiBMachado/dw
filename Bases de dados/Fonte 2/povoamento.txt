@@ -1,0 +1,50 @@
+CREATE (Gasolina95:Combustivel {tipo:'Gasolina 95', custo:1.43, pontos: 10, qtdTanque:20000 })
+CREATE (Gasoleo:Combustivel {tipo:'Gasoleo', custo:1.13, pontos: 5, qtdTanque:20000 })
+CREATE (Gasolina98:Combustivel {tipo:'Gasolina 98', custo:1.73, pontos: 20, qtdTanque:20000 })
+CREATE (GasoleoAgricola:Combustivel {tipo:'Gasoleo Agricola', custo:0.80, pontos: 3, qtdTanque:20000 })
+
+
+CREATE (Xavier:Cliente {nome:'Xavier Rodrigues', cc:19641234, nif:123456789})
+CREATE (Jorge:Cliente {nome:'Jorge Jesus', cc:19641235, nif:123456782})
+CREATE (Carolina:Cliente {nome:'Carolina Fernandes', cc:19641236, nif:123456783})
+CREATE (Rui:Cliente {nome:'Rui Correia', cc:19641237, nif:123456784})
+CREATE (Joao:Cliente {nome:'Joao Rua', cc:19641231, nif:123456785})
+CREATE (Miguel:Cliente {nome:'Miguel Paço', cc:14641232, nif:123466786})
+CREATE (Martim:Cliente {nome:'Martim Santos', cc:11641237, nif:113456784})
+
+CREATE (C1:Cupon {id:'c1', desconto:20, dataV:'12-12-2012', dataA:'02-04-12'})
+CREATE (C2:Cupon {id:'c2', desconto:30, dataV:'09-10-2012', dataA:'02-04-12'})
+CREATE (C3:Cupon {id:'c3', desconto:40, dataV:'11-10-2012', dataA:'02-04-12'})
+CREATE (C4:Cupon {id:'c4', desconto:45, dataV:'14-09-2012', dataA:'02-04-12'})
+CREATE (C5:Cupon {id:'c5', desconto:50, dataV:'06-06-2012', dataA:'02-04-12'})
+
+
+CREATE (V1:Venda {id:'v1', data:'2012-03-12',qtdAbastecida:20, totalPago:21.43,funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V2:Venda {id:'v2', data:'2012-03-13',qtdAbastecida:30, totalPago:40.23, funcionario:'Joaquim Fernandes',periodo:'Manha'})
+CREATE (V3:Venda {id:'v3', data:'2012-03-14',qtdAbastecida:12, totalPago:5, funcionario:'Orlando Pires',periodo:'Tarde'})
+CREATE (V4:Venda {id:'v4', data:'2012-03-15',qtdAbastecida:40, totalPago:35, funcionario:'Fernado Mendes',periodo:'Tarde'})
+CREATE (V5:Venda {id:'v5', data:'2012-03-16',qtdAbastecida:23, totalPago:19, funcionario:'Orlando Pires',periodo:'Noite'})
+CREATE (V6:Venda {id:'v6', data:'2012-03-17',qtdAbastecida:200, totalPago:150.67, funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V7:Venda {id:'v7', data:'2012-03-18',qtdAbastecida:30, totalPago:28, funcionario:'Orlando Pires',periodo:'Manha'})
+CREATE (V8:Venda {id:'v8', data:'2012-03-19',qtdAbastecida:25, totalPago:30, funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V9:Venda {id:'v9', data:'2012-03-20',qtdAbastecida:15, totalPago:10, funcionario:'Fernado Mendes',periodo:'Manha'})
+
+
+CREATE
+  (Gasoleo)-[:VENDIDO]->(V1),
+  (Gasolina95)-[:VENDIDO]->(V8),
+  (GasoleoAgricola)-[:VENDIDO]->(V6),
+  (Gasoleo)-[:VENDIDO]->(V5),
+  (Gasoleo)-[:VENDIDO]->(V9),
+  (Gasolina98)-[:VENDIDO]->(V2),
+  (Xavier)-[:FEZ_COMPRA]->(V1),
+  (Miguel)-[:FEZ_COMPRA]->(V9),
+  (C1)-[:USADO]->(V5),
+  (C2)-[:USADO]->(V9),
+  (Rui)-[:FEZ_COMPRA]->(V5)
+  
+
+  
+WITH Gasoleo as a
+MATCH (a)-[:VENDIDO]->(m)<-[:FEZ_COMPRA]-(d) RETURN a,m,d LIMIT 10
+;

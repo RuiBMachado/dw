@@ -444,7 +444,7 @@
     <database>arearetencao</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -471,7 +471,7 @@
     <database>fonte2</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f296be10ac7fcc95aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -534,7 +534,7 @@
       <schema_name/>
     </partitioning>
     <connection>fonte2</connection>
-    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Tipo&#xd;&#xa;, CustoL&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, Data&#xd;&#xa;, Nome&#xd;&#xa;, CC&#xd;&#xa;, NIF&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;FROM audneofinal&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  id&#xd;&#xa;, Tipo&#xd;&#xa;, CustoL&#xd;&#xa;, TotalPago&#xd;&#xa;, QtdAbastecida&#xd;&#xa;, Data&#xd;&#xa;, Nome&#xd;&#xa;, CC&#xd;&#xa;, NIF&#xd;&#xa;, Operacao&#xd;&#xa;, DataOperacao&#xd;&#xa;FROM audNeoFinal&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -655,6 +655,14 @@
         <field>
           <column_name>NIF</column_name>
           <stream_name>NIF</stream_name>
+        </field>
+        <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
+        </field>
+        <field>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -937,7 +945,7 @@
     </partitioning>
     <connection>aRetencao</connection>
     <schema/>
-    <table>pos_lneo</table>
+    <table>pos_LNeo</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
