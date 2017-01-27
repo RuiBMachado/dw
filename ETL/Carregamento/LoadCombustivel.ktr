@@ -704,8 +704,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>240</yloc>
+      <xloc>512</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -880,19 +880,12 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>Tipo</name>
-        <rename/>
       </field>      <field>        <name>Preco</name>
-        <rename/>
       </field>      <field>        <name>Operacao</name>
-        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-        <rename/>
       </field>      <field>        <name>LUp</name>
-        <rename/>
       </field>      <field>        <name>UltimoUpCombus</name>
-        <rename/>
       </field>        <select_unspecified>N</select_unspecified>
       <remove>        <name>LUp</name>
       </remove>      <meta>        <name>DataOperacao</name>

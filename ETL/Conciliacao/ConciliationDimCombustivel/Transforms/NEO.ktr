@@ -485,11 +485,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SK Tipo&#x3f;</from>
-      <to>Filtra OP</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>insere SK</from>
       <to>Rename</to>
       <enabled>Y</enabled>
@@ -569,6 +564,31 @@
       <to>Block this step</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Filter SF key</from>
+      <to>Insert key Fonte2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Verify SF key insert</from>
+      <to>Filter SF key</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SK Tipo&#x3f;</from>
+      <to>Verify SF key insert</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert key Fonte2</from>
+      <to>Filtra OP</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter SF key</from>
+      <to>Filtra OP</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>AR_posDimCombustivel</name>
@@ -600,20 +620,24 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>id</column_name>
-          <stream_name>id</stream_name>
+          <column_name>DataOperacao</column_name>
+          <stream_name>DataOperacao</stream_name>
         </field>
         <field>
           <column_name>Tipo</column_name>
           <stream_name>Tipo</stream_name>
         </field>
         <field>
+          <column_name>Operacao</column_name>
+          <stream_name>Operacao</stream_name>
+        </field>
+        <field>
           <column_name>Preco</column_name>
           <stream_name>CustoL</stream_name>
         </field>
         <field>
-          <column_name>DataOperacao</column_name>
-          <stream_name>DataOperacao</stream_name>
+          <column_name>id</column_name>
+          <stream_name>SK</stream_name>
         </field>
     </fields>
     <cluster_schema/>
@@ -896,7 +920,7 @@
   <condition>
    <negated>Y</negated>
    <operator>AND</operator>
-   <leftvalue>O_Tipo</leftvalue>
+   <leftvalue>Tipo</leftvalue>
    <function>&#x3d;</function>
    <rightvalue/>
    <value><name>constant</name><type>String</type><text>Erro</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value>   </condition>
@@ -988,6 +1012,41 @@
     </step>
 
   <step>
+    <name>Filter SF key</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Filtra OP</send_true_to>
+<send_false_to>Insert key Fonte2</send_false_to>
+    <compare>
+<condition>
+ <negated>Y</negated>
+ <leftvalue>Fonte2</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>Filtra OP</name>
     <type>FilterRows</type>
     <description/>
@@ -1039,14 +1098,14 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>equi_Cliente</table>
+      <table>equi_Combustivel</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>Tipo</name>
         <field>Tipo</field>
-        <condition>&#x3d;</condition>
+        <condition>LIKE</condition>
         <name2/>
       </key>
       <value>
@@ -1066,6 +1125,49 @@
     <GUI>
       <xloc>764</xloc>
       <yloc>476</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Insert key Fonte2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>equi_Combustivel</table>
+      <key>
+        <name>Tipo</name>
+        <field>Tipo</field>
+        <condition>LIKE</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Fonte2</name>
+        <rename>Tipo</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1143,8 +1245,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>300</xloc>
-      <yloc>204</yloc>
+      <xloc>192</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1175,8 +1277,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>172</xloc>
-      <yloc>204</yloc>
+      <xloc>64</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1193,15 +1295,10 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>Tipo</name>
-        <rename/>
       </field>      <field>        <name>CustoL</name>
-        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-        <rename/>
       </field>      <field>        <name>SK</name>
-        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1212,8 +1309,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>540</xloc>
-      <yloc>476</yloc>
+      <xloc>464</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1229,7 +1326,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>Filtra OP</send_true_to>
+<send_true_to>Verify SF key insert</send_true_to>
 <send_false_to>insere SK</send_false_to>
     <compare>
 <condition>
@@ -1247,8 +1344,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>208</yloc>
+      <xloc>464</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1295,8 +1392,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>428</xloc>
-      <yloc>204</yloc>
+      <xloc>320</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1359,6 +1456,54 @@
     </step>
 
   <step>
+    <name>Verify SF key insert</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>equi_Combustivel</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>Tipo</name>
+        <field>Fonte2</field>
+        <condition>LIKE</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Id</name>
+        <rename>Fonte2</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
     <name>insere SK</name>
     <type>TableOutput</type>
     <description/>
@@ -1404,8 +1549,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>540</xloc>
-      <yloc>348</yloc>
+      <xloc>464</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

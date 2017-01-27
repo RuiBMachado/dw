@@ -526,11 +526,6 @@
     </hop>
     <hop>
       <from>Filtra SK</from>
-      <to>Filtra OP</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filtra SK</from>
       <to>insere SK</to>
       <enabled>Y</enabled>
     </hop>
@@ -572,6 +567,31 @@
     <hop>
       <from>Pos-ConfNeo</from>
       <to>Obtem dados</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter SF key</from>
+      <to>Insert key Fonte2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Verify SF key insert</from>
+      <to>Filter SF key</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filtra SK</from>
+      <to>Verify SF key insert</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert key Fonte2</from>
+      <to>Filtra OP</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter SF key</from>
+      <to>Filtra OP</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -637,8 +657,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2016</xloc>
-      <yloc>724</yloc>
+      <xloc>1040</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -701,8 +721,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2576</xloc>
-      <yloc>404</yloc>
+      <xloc>1600</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -740,8 +760,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2240</xloc>
-      <yloc>612</yloc>
+      <xloc>1264</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -771,8 +791,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
-      <yloc>532</yloc>
+      <xloc>928</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -837,8 +857,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2080</xloc>
-      <yloc>548</yloc>
+      <xloc>1104</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -862,8 +882,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>452</yloc>
+      <xloc>832</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -887,8 +907,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2336</xloc>
-      <yloc>404</yloc>
+      <xloc>1360</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -934,8 +954,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2368</xloc>
-      <yloc>516</yloc>
+      <xloc>1392</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -969,8 +989,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1920</xloc>
-      <yloc>660</yloc>
+      <xloc>944</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1004,8 +1024,43 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>692</yloc>
+      <xloc>672</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter SF key</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Filtra OP</send_true_to>
+<send_false_to>Insert key Fonte2</send_false_to>
+    <compare>
+<condition>
+ <negated>Y</negated>
+ <leftvalue>Fonte2</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1039,8 +1094,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>548</yloc>
+      <xloc>672</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1056,7 +1111,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>Filtra OP</send_true_to>
+<send_true_to>Verify SF key insert</send_true_to>
 <send_false_to>insere SK</send_false_to>
     <compare>
 <condition>
@@ -1074,8 +1129,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>548</yloc>
+      <xloc>544</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1122,8 +1177,51 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>820</yloc>
+      <xloc>672</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Insert key Fonte2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>equi_Cliente</table>
+      <key>
+        <name>CC</name>
+        <field>CC</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Fonte2</name>
+        <rename>CC</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>684</xloc>
+      <yloc>15</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1170,8 +1268,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>612</yloc>
+      <xloc>800</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1202,8 +1300,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>548</yloc>
+      <xloc>176</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1234,8 +1332,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>548</yloc>
+      <xloc>80</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1252,17 +1350,11 @@
       <schema_name/>
     </partitioning>
     <fields>      <field>        <name>id</name>
-        <rename/>
       </field>      <field>        <name>CC</name>
-        <rename/>
       </field>      <field>        <name>NIF</name>
-        <rename/>
       </field>      <field>        <name>SK</name>
-        <rename/>
       </field>      <field>        <name>Nome</name>
-        <rename/>
       </field>      <field>        <name>DataOperacao</name>
-        <rename/>
       </field>        <select_unspecified>Y</select_unspecified>
       <remove>        <name>SK</name>
       </remove>    </fields>    <cluster_schema/>
@@ -1273,8 +1365,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>820</yloc>
+      <xloc>544</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1321,8 +1413,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>548</yloc>
+      <xloc>432</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1350,8 +1442,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>548</yloc>
+      <xloc>304</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1411,8 +1503,56 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2384</xloc>
-      <yloc>612</yloc>
+      <xloc>1408</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Verify SF key insert</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>arearetencao</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>equi_Cliente</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>CC</name>
+        <field>Fonte2</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Id</name>
+        <rename>Fonte2</rename>
+        <default>0</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1463,8 +1603,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1520</xloc>
-      <yloc>676</yloc>
+      <xloc>544</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1535,8 +1675,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>692</yloc>
+      <xloc>800</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
