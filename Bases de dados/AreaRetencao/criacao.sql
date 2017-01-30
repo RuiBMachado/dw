@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Cliente` (
   `Fonte2` INT(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 521
+AUTO_INCREMENT = 680
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`equi_Combustivel` (
   `Fonte2` VARCHAR(45) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 176
+AUTO_INCREMENT = 263
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCliente_H` (
   `CC` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 67
+AUTO_INCREMENT = 215
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_DimCombustivel_H` (
   `Data` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 25
+AUTO_INCREMENT = 181
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -232,7 +232,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `arearetencao`.`pos_Factos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Factos` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `DataOperacao` DATE NOT NULL,
   `DataInsercao` DATE NOT NULL,
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
@@ -242,6 +242,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_Factos` (
   `QtdAbastecida` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 36
 DEFAULT CHARACTER SET = utf8;
 
 
