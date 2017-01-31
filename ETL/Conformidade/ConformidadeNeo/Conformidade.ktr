@@ -694,12 +694,12 @@
       </meta>      <meta>        <name>Data</name>
         <rename>Data</rename>
         <type>Date</type>
-        <length>10</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask>dd-MM-yyyy</conversion_mask>
         <date_format_lenient>true</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe&#x2f;Lisbon</date_format_timezone>
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
         <encoding/>
         <decimal_symbol/>
@@ -807,7 +807,7 @@
       <schema_name/>
     </partitioning>
     <connection>arearetencao</connection>
-    <sql>SELECT &#x2a;&#xd;&#xa;FROM pos_lneo&#xd;&#xa;</sql>
+    <sql>SELECT &#x2a;&#xa;FROM pos_LNeo&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

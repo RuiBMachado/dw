@@ -9,12 +9,12 @@ insert into audNeoFinal values
 
 
 
-select * from audNeoFinal;
+select * from audNeo;
 
 
 use fonte2;
 delete from audNeoFinal;
-
+delete from audNeo;
 
 use arearetencao;
 delete from pos_ConfNeo;

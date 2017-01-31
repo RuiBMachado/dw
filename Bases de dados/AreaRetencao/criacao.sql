@@ -162,7 +162,6 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_ConfNeo` (
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -327,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LNeo` (
   `CustoL` FLOAT NOT NULL,
   `TotalPago` FLOAT NOT NULL,
   `QtdAbastecida` FLOAT NOT NULL,
-  `Data` VARCHAR(10) NOT NULL,
+  `Data` VARCHAR(30) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `CC` INT(11) NOT NULL,
   `NIF` INT(11) NOT NULL,
@@ -335,7 +334,6 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`pos_LNeo` (
   `Operacao` ENUM('I', 'U', 'D') NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -524,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_equiCombustivel` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-insert into `arearetencao`.`DataUpdate` values (1,'2000-01-01 00:00:00','2000-01-01 00:00:00');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

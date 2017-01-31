@@ -19,15 +19,15 @@ CREATE (C4:Cupon {id:'c4', desconto:45, dataV:'14-09-2012', dataA:'02-04-12'})
 CREATE (C5:Cupon {id:'c5', desconto:50, dataV:'06-06-2012', dataA:'02-04-12'})
 
 
-CREATE (V1:Venda {id:'v1', data:'2012-03-12',qtdAbastecida:20, totalPago:21.43,funcionario:'Fernado Mendes',periodo:'Manha'})
-CREATE (V2:Venda {id:'v2', data:'2012-03-13',qtdAbastecida:30, totalPago:40.23, funcionario:'Joaquim Fernandes',periodo:'Manha'})
-CREATE (V3:Venda {id:'v3', data:'2012-03-14',qtdAbastecida:12, totalPago:5, funcionario:'Orlando Pires',periodo:'Tarde'})
-CREATE (V4:Venda {id:'v4', data:'2012-03-15',qtdAbastecida:40, totalPago:35, funcionario:'Fernado Mendes',periodo:'Tarde'})
-CREATE (V5:Venda {id:'v5', data:'2012-03-16',qtdAbastecida:23, totalPago:19, funcionario:'Orlando Pires',periodo:'Noite'})
-CREATE (V6:Venda {id:'v6', data:'2012-03-17',qtdAbastecida:200, totalPago:150.67, funcionario:'Fernado Mendes',periodo:'Manha'})
-CREATE (V7:Venda {id:'v7', data:'2012-03-18',qtdAbastecida:30, totalPago:28, funcionario:'Orlando Pires',periodo:'Manha'})
-CREATE (V8:Venda {id:'v8', data:'2012-03-19',qtdAbastecida:25, totalPago:30, funcionario:'Fernado Mendes',periodo:'Manha'})
-CREATE (V9:Venda {id:'v9', data:'2012-03-20',qtdAbastecida:15, totalPago:10, funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V1:Venda {id:'v1', data:'12-03-2012', qtdAbastecida:20, totalPago:21.43,funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V2:Venda {id:'v2', data:'13-03-2012', qtdAbastecida:30, totalPago:40.23, funcionario:'Joaquim Fernandes',periodo:'Manha'})
+CREATE (V3:Venda {id:'v3', data:'14-03-2012', qtdAbastecida:12, totalPago:5, funcionario:'Orlando Pires',periodo:'Tarde'})
+CREATE (V4:Venda {id:'v4', data:'15-03-2012', qtdAbastecida:40, totalPago:35, funcionario:'Fernado Mendes',periodo:'Tarde'})
+CREATE (V5:Venda {id:'v5', data:'16-03-2012', qtdAbastecida:23, totalPago:19, funcionario:'Orlando Pires',periodo:'Noite'})
+CREATE (V6:Venda {id:'v6', data:'17-03-2012', qtdAbastecida:200, totalPago:150.67, funcionario:'Fernando Mendes',periodo:'Manha'})
+CREATE (V7:Venda {id:'v7', data:'18-03-2012', qtdAbastecida:30, totalPago:28, funcionario:'Orlando Pires',periodo:'Manha'})
+CREATE (V8:Venda {id:'v8', data:'19-03-2012', qtdAbastecida:25, totalPago:30, funcionario:'Fernado Mendes',periodo:'Manha'})
+CREATE (V9:Venda {id:'v9', data:'20-03-2012', qtdAbastecida:15, totalPago:10, funcionario:'Fernado Mendes',periodo:'Manha'})
 
 
 CREATE

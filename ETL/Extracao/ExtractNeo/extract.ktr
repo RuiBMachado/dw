@@ -507,7 +507,7 @@
       <schema_name/>
     </partitioning>
     <connection>neo</connection>
-    <sql>MATCH &#x28;c&#x3a;Combustivel&#x29;-&#x5b;r&#x3a;VENDIDO&#x5d;-&#x3e;&#x28;v&#x3a;Venda&#x29;&#x3c;-&#x5b;u&#x3a;FEZ_COMPRA&#x5d;-&#x28;cl&#x3a;Cliente&#x29; RETURN c.tipo,c.custo,v.totalPago,v.qtdAbastecida,v.data,cl.nome,cl.cc,cl.nif LIMIT 25&#x3b;</sql>
+    <sql>MATCH &#x28;c&#x3a;Combustivel&#x29;-&#x5b;r&#x3a;VENDIDO&#x5d;-&#x3e;&#x28;v&#x3a;Venda&#x29;&#x3c;-&#x5b;u&#x3a;FEZ_COMPRA&#x5d;-&#x28;cl&#x3a;Cliente&#x29; RETURN c.tipo,c.custo,v.totalPago,v.qtdAbastecida,v.data,cl.nome,cl.cc,cl.nif limit 3&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
