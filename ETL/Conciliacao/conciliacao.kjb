@@ -489,7 +489,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>560</xloc>
-      <yloc>272</yloc>
+      <yloc>240</yloc>
     </entry>
     <entry>
       <name>ConciliacaoCalendarioNeo</name>
@@ -523,7 +523,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>544</xloc>
+      <xloc>560</xloc>
       <yloc>368</yloc>
     </entry>
     <entry>
@@ -533,7 +533,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
+      <xloc>256</xloc>
       <yloc>368</yloc>
     </entry>
   </entries>

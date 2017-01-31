@@ -8,9 +8,12 @@ insert into audNeoFinal values
 	(3,'Gasolina 98',1.90,19,10,'2015-01-19','Francisco Souto',13987552,216357634,'I',now());
 
 
-delete from audNeoFinal;
 
 select * from audNeoFinal;
+
+
+use fonte2;
+delete from audNeoFinal;
 
 
 use arearetencao;

@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`Combustivel` (
   `custoLitro` DECIMAL(4,3) NOT NULL,
   PRIMARY KEY (`idCombustivel`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -98,7 +97,6 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCalendario` (
   `Data` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 129
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -115,7 +113,6 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCliente` (
   `NIF` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 194
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -131,7 +128,6 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audCombustivel` (
   `IdCombustivel` INT(11) NOT NULL DEFAULT '-1',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 65
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -149,7 +145,6 @@ CREATE TABLE IF NOT EXISTS `eurosuper`.`audVenda` (
   `DataOperacao` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 129
 DEFAULT CHARACTER SET = utf8;
 
 

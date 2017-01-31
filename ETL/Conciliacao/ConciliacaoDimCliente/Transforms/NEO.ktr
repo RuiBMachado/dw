@@ -594,11 +594,6 @@
       <to>Dummy &#x28;do nothing&#x29;</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>Update</from>
-      <to>Dummy &#x28;do nothing&#x29; 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
     <name>AR_posDimCliente</name>
@@ -914,31 +909,6 @@
     <GUI>
       <xloc>1360</xloc>
       <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29; 2 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1591</xloc>
-      <yloc>325</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
