@@ -480,7 +480,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>pos_LFactosSF</from>
+      <from>pos_LFactosP1</from>
       <to>Delete</to>
       <enabled>Y</enabled>
     </hop>
@@ -511,7 +511,7 @@
     </hop>
     <hop>
       <from>VerificaDados</from>
-      <to>pos_LFactosSF</to>
+      <to>pos_LFactosP1</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -598,7 +598,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<send_true_to>pos_LFactosSF</send_true_to>
+<send_true_to>pos_LFactosP1</send_true_to>
 <send_false_to>qua_LFactosP1</send_false_to>
     <compare>
 <condition>
@@ -771,7 +771,7 @@
     </step>
 
   <step>
-    <name>pos_LFactosSF</name>
+    <name>pos_LFactosP1</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

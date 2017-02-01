@@ -523,6 +523,7 @@ CREATE TABLE IF NOT EXISTS `arearetencao`.`qua_equiCombustivel` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+insert into `arearetencao`.`DataUpdate` values (1,'2000-01-01 00:00:00','2000-01-01 00:00:00');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

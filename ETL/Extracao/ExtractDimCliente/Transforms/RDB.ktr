@@ -492,7 +492,7 @@
   </connection>
   <order>
     <hop>
-      <from>AR_preClienteTC</from>
+      <from>AR_preClienteP1</from>
       <to>Delete Row AudCliente</to>
       <enabled>Y</enabled>
     </hop>
@@ -503,12 +503,12 @@
     </hop>
     <hop>
       <from>Concat Nome</from>
-      <to>AR_preClienteTC</to>
+      <to>AR_preClienteP1</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>AR_preClienteTC</name>
+    <name>AR_preClienteP1</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>

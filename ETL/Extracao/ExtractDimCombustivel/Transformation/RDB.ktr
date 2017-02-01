@@ -493,11 +493,11 @@
   <order>
     <hop>
       <from>AudCombustivel</from>
-      <to>pre_FactosRDB</to>
+      <to>pre_CombustivelP1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>pre_FactosRDB</from>
+      <from>pre_CombustivelP1</from>
       <to>Delete Row AudCombustivel</to>
       <enabled>Y</enabled>
     </hop>
@@ -572,7 +572,7 @@
     </step>
 
   <step>
-    <name>pre_FactosRDB</name>
+    <name>pre_CombustivelP1</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
