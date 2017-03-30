@@ -44,4 +44,8 @@ colnames(dataset)
 summary(dataset)
 #Visualizar histograma de classificação dos filmes
 hist(dataset$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequency",col = "orange")
+#Vector(nomedirector,ator1,ator2,ator3,facebooktotallikes,imdbscore)
+analis1<-dataset[c(2,11,7,15,14,26)]
+head(analis1)
+
 
