@@ -47,5 +47,19 @@ hist(dataset$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = 
 #Vector(nomedirector,ator1,ator2,ator3,facebooktotallikes,imdbscore)
 analis1<-dataset[c(2,11,7,15,14,26)]
 head(analis1)
+#Filmes com cotação superior a 5
+maior5<-dataset[dataset$imdb.score>=5.0,]
+nrow(maior5)
+#Filmes com cotação inferior a 5
+menor5<-dataset[dataset$imdb.score<5.0,]
+nrow(menor5)
+
+#Filmes Robert De Niro
+robertDN<-dataset[dataset$actor.1.name=="Robert De Niro",]
+hist(robertDN$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequency",col = "orange")
+summary(robertDN)
+
+
+
 
 
