@@ -53,11 +53,20 @@ nrow(maior5)
 #Filmes com cotação inferior a 5
 menor5<-dataset[dataset$imdb.score<5.0,]
 nrow(menor5)
+#Regreção
+totalLikesFacebook<-dataset[c(4)]
+imdbScore<-dataset[c(26)]
+x<-as.vector(imdbScore[1])[,1]
+y<-as.vector(totalLikesFacebook[1])[,1]
 
+regre<-lm(x~y)
+print(regre)
 #Filmes Robert De Niro
 robertDN<-dataset[dataset$actor.1.name=="Robert De Niro",]
 hist(robertDN$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequency",col = "orange")
 summary(robertDN)
+
+
 
 
 
