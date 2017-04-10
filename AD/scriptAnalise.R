@@ -42,6 +42,9 @@ colnames(dataset) <- gsub("_",".",tolower(colnames(dataset)))
 colnames(dataset)
 #visualizar analise de todos os dados
 summary(dataset)
+#Dataset sem NA
+limpo<-dataset[complete.cases(dataset),]
+summary(limpo)
 #Visualizar histograma de classificação dos filmes
 hist(dataset$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequency",col = "orange")
 #Vector(nomedirector,ator1,ator2,ator3,facebooktotallikes,imdbscore)
