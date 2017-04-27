@@ -1,0 +1,40 @@
+<Schema name="New Schema1">
+  <Dimension type="StandardDimension" visible="true" name="Dim_Calendario">
+    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      <Table name="DIM_Calendario" alias="">
+      </Table>
+      <Level name="Nivel1" visible="true" column="Data" nameColumn="DiaSemana" type="String" uniqueMembers="true" levelType="Regular">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Dim_Cliente">
+    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      <Table name="DIM_Cliente" alias="">
+      </Table>
+      <Level name="Nivel1" visible="true" column="Id" nameColumn="Nome" type="String" uniqueMembers="true" levelType="Regular">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Dim_Combustivel">
+    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+      <Table name="DIM_Combustivel">
+      </Table>
+      <Level name="Nivel1" visible="true" column="Id" nameColumn="Preco" type="Numeric" uniqueMembers="true" levelType="Regular">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Cubo1" visible="true" cache="true" enabled="true">
+    <Table name="TFVenda">
+    </Table>
+    <DimensionUsage source="Dim_Calendario" name="Dim_Calendario" visible="true" foreignKey="Data">
+    </DimensionUsage>
+    <DimensionUsage source="Dim_Cliente" name="Dim_Cliente" visible="true" foreignKey="DIM_Cliente_id">
+    </DimensionUsage>
+    <DimensionUsage source="Dim_Combustivel" name="Dim_Combustivel" visible="true" foreignKey="DIM_Combustivel_id">
+    </DimensionUsage>
+    <Measure name="ValorPago" column="ValorPago" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="QtdAbastecida" column="QtdAbastecida" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
