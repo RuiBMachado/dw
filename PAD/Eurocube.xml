@@ -1,40 +1,54 @@
-<Schema name="New Schema1">
-  <Dimension type="StandardDimension" visible="true" name="Dim_Calendario">
-    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
-      <Table name="DIM_Calendario" alias="">
-      </Table>
-      <Level name="Nivel1" visible="true" column="Data" nameColumn="DiaSemana" type="String" uniqueMembers="true" levelType="Regular">
-      </Level>
-    </Hierarchy>
-  </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="Dim_Cliente">
-    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
-      <Table name="DIM_Cliente" alias="">
-      </Table>
-      <Level name="Nivel1" visible="true" column="Id" nameColumn="Nome" type="String" uniqueMembers="true" levelType="Regular">
-      </Level>
-    </Hierarchy>
-  </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="Dim_Combustivel">
-    <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
-      <Table name="DIM_Combustivel">
-      </Table>
-      <Level name="Nivel1" visible="true" column="Id" nameColumn="Preco" type="Numeric" uniqueMembers="true" levelType="Regular">
-      </Level>
-    </Hierarchy>
-  </Dimension>
-  <Cube name="Cubo1" visible="true" cache="true" enabled="true">
+<Schema name="EuroCube">
+  <Cube name="TotalGanhos" visible="true" cache="true" enabled="true">
     <Table name="TFVenda">
     </Table>
-    <DimensionUsage source="Dim_Calendario" name="Dim_Calendario" visible="true" foreignKey="Data">
-    </DimensionUsage>
-    <DimensionUsage source="Dim_Cliente" name="Dim_Cliente" visible="true" foreignKey="DIM_Cliente_id">
-    </DimensionUsage>
-    <DimensionUsage source="Dim_Combustivel" name="Dim_Combustivel" visible="true" foreignKey="DIM_Combustivel_id">
-    </DimensionUsage>
-    <Measure name="ValorPago" column="ValorPago" datatype="Numeric" aggregator="sum" visible="true">
+    <Dimension type="StandardDimension" visible="true" foreignKey="Data" highCardinality="false" name="DIM_Calendario">
+      <Hierarchy name="data-diaSemana" visible="true" hasAll="true" primaryKey="Data">
+        <Table name="DIM_Calendario">
+        </Table>
+        <Level name="Data" visible="true" table="DIM_Calendario" column="Data" type="Date" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia_Semana" visible="true" table="DIM_Calendario" column="DiaSemana" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="data-Mes-Ano" visible="true" hasAll="true" primaryKey="Data">
+        <Table name="DIM_Calendario">
+        </Table>
+        <Level name="Data" visible="true" table="DIM_Calendario" column="Data" type="Date" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Ano" visible="true" table="DIM_Calendario" column="Ano" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" table="DIM_Calendario" column="Mes" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="DIM_Combustivel_id" highCardinality="false" name="Combustivel">
+      <Hierarchy name="id-tipo-preco" visible="true" hasAll="true" primaryKey="Id">
+        <Table name="DIM_Combustivel">
+        </Table>
+        <Level name="ID" visible="true" table="DIM_Combustivel" column="Id" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Tipo" visible="true" table="DIM_Combustivel" column="Tipo" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Preco" visible="true" table="DIM_Combustivel" column="Preco" type="Numeric" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="DIM_Cliente_id" highCardinality="false" name="Cliente">
+      <Hierarchy name="id-cc-nome" visible="true" hasAll="true" primaryKey="Id">
+        <Table name="DIM_Cliente">
+        </Table>
+        <Level name="ID" visible="true" table="DIM_Cliente" column="Id" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Nome" visible="true" table="DIM_Cliente" column="Nome" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="CC" visible="true" table="DIM_Cliente" column="CC" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="TotalGanho" column="ValorPago" datatype="Numeric" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="QtdAbastecida" column="QtdAbastecida" datatype="Numeric" aggregator="sum" visible="true">
+    <Measure name="TotalAbastecido" column="QtdAbastecida" datatype="Numeric" aggregator="sum" visible="true">
     </Measure>
   </Cube>
 </Schema>
