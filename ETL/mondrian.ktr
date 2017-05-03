@@ -491,12 +491,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <url/>
+    <url>localhost&#x3a;8080&#x2f;pentaho</url>
     <urlInField>N</urlInField>
     <urlField/>
     <encoding>UTF-8</encoding>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
+    <httpLogin>admin</httpLogin>
+    <httpPassword>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</httpPassword>
     <proxyHost/>
     <proxyPort/>
     <socketTimeout>10000</socketTimeout>
