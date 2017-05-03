@@ -62,6 +62,8 @@ imdbScore<-dataset[c(26)]
 x<-as.vector(imdbScore[1])[,1]
 y<-as.vector(totalLikesFacebook[1])[,1]
 
+
+
 regre<-lm(x~y)
 print(regre)
 #Filmes Robert De Niro
