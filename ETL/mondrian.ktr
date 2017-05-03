@@ -431,7 +431,7 @@
     <created_date>2017&#x2f;05&#x2f;03 16&#x3a;59&#x3a;17.019</created_date>
     <modified_user>-</modified_user>
     <modified_date>2017&#x2f;05&#x2f;03 16&#x3a;59&#x3a;17.019</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -460,6 +460,18 @@
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>url_mondrian</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8080&#x2f;pentaho&#x2f;api&#x2f;system&#x2f;refresh&#x2f;mondrianSchemaCache</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <limit>10</limit>
     <never_ending>N</never_ending>
@@ -491,9 +503,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <url>localhost&#x3a;8080&#x2f;pentaho</url>
-    <urlInField>N</urlInField>
-    <urlField/>
+    <url/>
+    <urlInField>Y</urlInField>
+    <urlField>url_mondrian</urlField>
     <encoding>UTF-8</encoding>
     <httpLogin>admin</httpLogin>
     <httpPassword>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</httpPassword>
