@@ -438,60 +438,16 @@
   </notepads>
   <order>
     <hop>
-      <from>Generate Parameters</from>
-      <to>HTTP Client</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>HTTP Client</from>
       <to>Write to log</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Generate Parameters</from>
+      <to>HTTP Client</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>Generate Parameters</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>url_mondrian</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8080&#x2f;pentaho&#x2f;api&#x2f;system&#x2f;refresh&#x2f;mondrianSchemaCache</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>10</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>208</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
   <step>
     <name>HTTP Client</name>
     <type>HTTP</type>
@@ -563,6 +519,50 @@
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Generate Parameters</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>url_mondrian</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8080&#x2f;pentaho&#x2f;api&#x2f;system&#x2f;refresh&#x2f;mondrianSchemaCache</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms/>
+    <row_time_field/>
+    <last_time_field/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
