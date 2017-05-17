@@ -1,3 +1,7 @@
+install.packages('ggplot2')
+install.packages('ggthemes', dependencies = TRUE) 
+library(ggthemes) 
+library(ggplot2)
 #Carregar dados do dataset
 dataset <- read.csv("/Users/xavier/Downloads/movie_metadata.csv",header =TRUE,sep = ",")
 #Visualizar numero de colunas
@@ -61,6 +65,11 @@ totalLikesFacebook<-dataset[c(4)]
 imdbScore<-dataset[c(26)]
 x<-as.vector(imdbScore[1])[,1]
 y<-as.vector(totalLikesFacebook[1])[,1]
+names(limpo)
+
+str(limpo)
+levels(limpo$genres)
+qplot(data=limpo, x = limpo$imdb_score) +  scale_x_continuous(breaks = 0:10)
 
 
 
