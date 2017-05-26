@@ -4,49 +4,26 @@ library(ggthemes)
 library(ggplot2)
 #Carregar dados do dataset
 dataset <- read.csv("/Users/xavier/Downloads/movie_metadata.csv",header =TRUE,sep = ",")
-#Visualizar numero de colunas
-ncol(dataset) 
-#Visualizar numero de linhas
-nrow(dataset)
-#Visualiar tipo de atributos
-print(class(dataset$color))
-print(class(dataset$director.name))
-print(class(dataset$num.critic.for.reviews))
-print(class(dataset$duration))
-print(class(dataset$director.facebook.likes))
-print(class(dataset$actor.3.facebook.likes))
-print(class(dataset$actor.2.name))
-print(class(dataset$actor.1.facebook.likes))
-print(class(dataset$gross))
-print(class(dataset$genres))
-print(class(dataset$actor.1.name))
-print(class(dataset$movie.title))
-print(class(dataset$num.voted.users))
-print(class(dataset$cast.total.facebook.likes))
-print(class(dataset$actor.3.name))
-print(class(dataset$facenumber.in.poster))
-print(class(dataset$plot.keywords))
-print(class(dataset$movie.imdb.link))
-print(class(dataset$num.user.for.reviews))
-print(class(dataset$language))
-print(class(dataset$country))
-print(class(dataset$content.rating))
-print(class(dataset$budget))
-print(class(dataset$title.year))
-print(class(dataset$actor.2.facebook.likes))
-print(class(dataset$imdb.score))
-print(class(dataset$aspect.ratio))
-print(class(dataset$movie.facebook.likes))
-#Visualizar 6 primeiras linhas de dados
-head(dataset)
-#Visualizar os atributos
-colnames(dataset)
-#Visualizar substiruir atribitos  "_" por "."
-colnames(dataset) <- gsub("_",".",tolower(colnames(dataset)))
-colnames(dataset)
-#visualizar analise de todos os dados
+dim(dataset)
+sapply(dataset,function(x) sum(is.na(x)))
+names(dataset)
 summary(dataset)
-#Dataset sem NA
+par(mfrow=c(1,4))
+barplot(table(dataset$actor_1_facebook_likes), ylab='Total de likes do actor principal',col ='red')
+barplot(table(dataset$actor_2_facebook_likes), ylab='Total de likes do actor secundario',col ='azure')
+barplot(table(dataset$actor_3_facebook_likes), ylab='Total de likes do actor principal',col ='cyan')
+
+#Clustering1
+x1<-c(5,6,8,25,26)
+clust1<-dataset[x1]
+clust1_clean<-clust1[complete.cases(clust1),]
+scale_clust1<-scale(clust1_clean)
+library(mclust)
+fit<-Mclust(scale_clust1)
+print(summary(fit)) # display the best model
+plot(fit) # plot results 
+
+1#Dataset sem NA
 limpo<-dataset[complete.cases(dataset),]
 summary(limpo)
 #Visualizar histograma de classificação dos filmes
