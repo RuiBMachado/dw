@@ -16,7 +16,7 @@ library(grid)
 library(ggthemes) 
 library(ggplot2)
 #Carregar dados do dataset
-dataset <- read.csv("/Users/xavier/Downloads/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
+dataset <- read.csv("D:/Universidade/4 ano/BI/Análise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
 dim(dataset)
 sapply(dataset,function(x) sum(is.na(x)))
 names(dataset)
@@ -57,11 +57,37 @@ ggplot(ator1, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
 ggplot(ator2, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
 ggplot(ator3, aes(x=name, y=value)) + geom_bar(stat = "identity")
 
-#CorrelaÃ§ao
+#CorrelaÃ§ao pergunta 2
 x1<-c(5,6,8,25,26)
 clust1<-dataset[x1]
 correlacao=clust1[complete.cases(clust1),]
-cor(correlacao, use="complete.obs", method="kendall")
+cor(correlacao, use="complete.obs", method="pearson")
+
+#Correlacao pergunta 1
+x1<-c(14,26)
+clust1<-dataset[x1]
+correlacao=clust1[complete.cases(clust1),]
+cor(correlacao, use="complete.obs",method="pearson")
+
+#Correlacao pergunta 3
+x1<-c(23,26)
+clust1<-dataset[x1]
+correlacao=clust1[complete.cases(clust1),]
+cor(correlacao, use="complete.obs",method="pearson")
+
+#correlacao pergunta 4
+x1 <- c(26)
+clust1<-dataset[x1]
+correlacao1=clust1[complete.cases(clust1),]
+IScore <- cut(correlacao1, breaks=c(0,2,4,6,8,10), labels=c("Muito fraco","Fraco","Razoável","Bom","Excelente"))
+
+x2<-c(22,10)
+clust2<-dataset[x2]
+correlacao2=clust2[complete.cases(clust2),]
+
+x3<-merge(correlacao1,correlacao2)
+cor(correlacao2, use="complete.obs",method="pearson")
+
 
 #Fazer uma regressÃ£o
 
