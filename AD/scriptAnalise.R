@@ -1,5 +1,11 @@
 install.packages('ggplot2')
-install.packages("rattle", repos="http://rattle.togaware.com")
+
+install.packages("devtools") 
+install.packages("RGtk2")
+install.packages('Rcmdr', dependencies = TRUE)
+
+library(RGtk2)
+
 install.packages('ggthemes', dependencies = TRUE) 
 install.packages('rminer')
 install.packages('corrplot', dependencies = TRUE)
@@ -15,31 +21,47 @@ dim(dataset)
 sapply(dataset,function(x) sum(is.na(x)))
 names(dataset)
 summary(dataset)
-#Visualizar histograma de classificação dos filmes
-hist(dataset$imdb_score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequencia",col = "orange")
 #Agrupar likes em 4 ranges(ator1)
 x0<-c(8)
 clean0<-dataset[x0][complete.cases(dataset[x0]),]
-rg1<-clean0[clean0>=0 & clean0<=35000]
-rg2<-clean0[clean0>35000 & clean0<=70000]
-rg3<-clean0[clean0>70000 & clean0<=95000]
-rg4<-clean0[clean0>95000 & clean0<=140000]
+rg1<-length(clean0[clean0>=0 & clean0<=35000])
+rg2<-length(clean0[clean0>35000 & clean0<=70000])
+rg3<-length(clean0[clean0>70000 & clean0<=95000])
+rg4<-length(clean0[clean0>95000 & clean0<=140000])
+ator1=data.frame(Distribuicao=c("0-35000","35000-70000","70000-95000","95000-140000") ,  Frequencia=c(rg1,rg2,rg3,rg4))
+# Barplot
+
 #Agrupar likes em 4 ranges(ator2)
 x1<-c(25)
 clean1<-dataset[x1][complete.cases(dataset[x1]),] #limpar NA
-rg11<-clean1[clean1>=0 & clean1<=160000]
-rg22<-clean1[clean1>160000 & clean1<=320000]
-rg33<-clean1[clean1>320000 & clean1<=480000]
-rg44<-clean1[clean1>480000 & clean1<=640000]
+rg11<-length(clean1[clean1>=0 & clean1<=160000])
+rg22<-length(clean1[clean1>160000 & clean1<=320000])
+rg33<-length(clean1[clean1>320000 & clean1<=480000])
+rg44<-length(clean1[clean1>480000 & clean1<=640000])
+
+ator2=data.frame(Distribuicao=c("0-16","16-32","32-48","48-64") ,  Frequencia=c(rg11,rg22,rg33,rg44))
+# Barplot
+
+
 #Agrupar likes em 4 ranges(ator3)
 x2<-c(6)
 clean2<-dataset[x2][complete.cases(dataset[x2]),] #limpar NA
-rg111<-clean2[clean2>=0 & clean2<=6000]
-rg222<-clean2[clean2>6000 & clean2<=12000]
-rg333<-clean2[clean2>12000 & clean2<=18000]
-rg444<-clean2[clean2>18000 & clean2<=24000]
+rg111<-length(clean2[clean2>=0 & clean2<=6000])
+rg222<-length(clean2[clean2>6000 & clean2<=12000])
+rg333<-length(clean2[clean2>12000 & clean2<=18000])
+rg444<-length(clean2[clean2>18000 & clean2<=24000])
+ator3=data.frame(Distribuicao=c("0-6","6-12","12-18","18-24") ,  Frequencia=c(rg11,rg22,rg33,rg44))
+par(mfrow=c(2,2))
+hist(dataset$imdb_score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequencia",col = "orange")
+ggplot(ator1, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
+ggplot(ator2, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
+ggplot(ator3, aes(x=name, y=value)) + geom_bar(stat = "identity")
 
-
+#Correlaçao
+x1<-c(5,6,8,25,26)
+clust1<-dataset[x1]
+correlacao=clust1[complete.cases(clust1),]
+cor(correlacao, use="complete.obs", method="kendall")
 
 #Fazer uma regressão
 
