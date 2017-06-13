@@ -1,4 +1,5 @@
 install.packages('ggplot2')
+install.packages('MatrixModels')
 install.packages("devtools") 
 install.packages("RGtk2")
 install.packages('Rcmdr', dependencies = TRUE)
@@ -79,6 +80,7 @@ lm.imdb.1=lm(analise1.clean$imdb_score~analise1.clean$num_critic_for_reviews+ana
                analise1.clean$actor_2_facebook_likes+analise1.clean$movie_facebook_likes,data = analise1.clean)
 
 summary(lm.imdb.1)
+
 par(mfrow=c(1,1))
 
 #Criar dataset para treino
@@ -96,9 +98,15 @@ maximdb=max(analise1.clean$imdb_score)
 smoothScatter(previsao.expcted,xlab = "IMBD Score", ylab="Previsao",main="Distribuicao da previsao",xlim = c(minimdb,maximdb),ylim=c(minimdb,maximdb))
 
 
-
-
-
+#Escolha dos atributos metodo 2
+library(leaps)
+select.atributos=regsubsets(analise1.clean$imdb_score~.,data=analise1.clean,method="backward",nvmax=(ncol(analise1.clean)-1))
+summary(select.atributos)
+#Nova regressao
+lm.reg2=lm(analise1.clean$imdb_score~analise1.clean$num_critic_for_reviews+analise1.clean$duration+
+             analise1.clean$gross+analise1.clean$num_voted_users+analise1.clean$cast_total_facebook_likes
+           +analise1.clean$num_user_for_reviews)
+summary(lm.reg2)
 
 
 
