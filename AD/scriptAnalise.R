@@ -14,7 +14,7 @@ library(ggthemes)
 library(ggplot2)
 
 #Carregar dados do dataset
-dataset <- read.csv("D:/Universidade/4 ano/BI/An�lise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
+dataset <- read.csv("D:/Universidade/4 ano/BI/An?lise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
 dim(dataset)
 sapply(dataset,function(x) sum(is.na(x)))
 names(dataset)
@@ -35,7 +35,7 @@ analise1=dataset[,p1]
 analise1.clean=analise1[complete.cases(analise1),]
 
 par(mfrow=c(2,2))
-<<<<<<< HEAD
+
 for(att in colnames(analise1.clean)[c(1,2,3,4)]){
   hist(analise1.clean[,att],xlab="",ylab="",main=att,col="lightgray")
 }
@@ -71,21 +71,6 @@ heatmap.2(corr, col = redblue(16),trace="none")
 
 
 
-
-
-
-
-
-
-
-
-
-=======
-hist(dataset$imdb_score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequencia",col = "orange")
-ggplot(ator1, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
-ggplot(ator2, aes(x=Distribuicao, y=Frequencia)) + geom_bar(stat = "identity")
-ggplot(ator3, aes(x=name, y=value)) + geom_bar(stat = "identity")
-
 #Correlaçao pergunta 2
 x1<-c(5,6,8,25,26)
 clust1<-dataset[x1]
@@ -108,7 +93,7 @@ cor(correlacao, use="complete.obs",method="pearson")
 x1 <- c(26)
 clust1<-dataset[x1]
 correlacao1=clust1[complete.cases(clust1),]
-IScore <- cut(correlacao1, breaks=c(0,2,4,6,8,10), labels=c("Muito fraco","Fraco","Razo�vel","Bom","Excelente"))
+IScore <- cut(correlacao1, breaks=c(0,2,4,6,8,10), labels=c("Muito fraco","Fraco","Razo?vel","Bom","Excelente"))
 
 x2<-c(22,10)
 clust2<-dataset[x2]
@@ -122,48 +107,12 @@ cor(correlacao2, use="complete.obs",method="pearson")
 
 
 
-#Clustering1
-x1<-c(5,6,8,25,26)
-clust1<-dataset[x1]
-clust1_clean<-clust1[complete.cases(clust1),]
-scale_clust1<-scale(clust1_clean)
-library(mclust)
-fit<-Mclust(scale_clust1)
-print(summary(fit)) # display the best model
-plot(fit) # plot results 
-
-1#Dataset sem NA
-limpo<-dataset[complete.cases(dataset),]
-summary(limpo)
-#Vector(nomedirector,ator1,ator2,ator3,facebooktotallikes,imdbscore)
-analis1<-dataset[c(2,11,7,15,14,26)]
-head(analis1)
-#Filmes com cotação superior a 5
-maior5<-dataset[dataset$imdb.score>=5.0,]
-nrow(maior5)
-#Filmes com cotação inferior a 5
-menor5<-dataset[dataset$imdb.score<5.0,]
-nrow(menor5)
-#Regreção
-totalLikesFacebook<-dataset[c(4)]
-imdbScore<-dataset[c(26)]
-x<-as.vector(imdbScore[1])[,1]
-y<-as.vector(totalLikesFacebook[1])[,1]
-names(limpo)
-
-str(limpo)
-levels(limpo$genres)
-qplot(data=limpo, x = limpo$imdb_score) +  scale_x_continuous(breaks = 0:10)
 
 
 
-regre<-lm(x~y)
-print(regre)
-#Filmes Robert De Niro
-robertDN<-dataset[dataset$actor.1.name=="Robert De Niro",]
-hist(robertDN$imdb.score,main="Classificação dos filmes",xlab = "Score",ylab = "Frequency",col = "orange")
-summary(robertDN)
->>>>>>> origin/master
+
+
+
 
 
 
