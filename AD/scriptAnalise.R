@@ -14,7 +14,8 @@ library(ggthemes)
 library(ggplot2)
 
 #Carregar dados do dataset
-dataset <- read.csv("D:/Universidade/4 ano/BI/An?lise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
+#dataset <- read.csv("D:/Universidade/4 ano/BI/An?lise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
+dataset=read.csv("/Users/xavier/Downloads/movie_metadata.csv")
 dim(dataset)
 sapply(dataset,function(x) sum(is.na(x)))
 names(dataset)
@@ -65,6 +66,39 @@ pairs(analise1.clean, lower.panel = panel.smooth,upper.panel=panel.cor)
 corr=cor(analise1.clean)
 library(gplots)
 heatmap.2(corr, col = redblue(16),trace="none")
+corrplot(corr,method ='ellipse')
+
+#Regresssão1
+lm.imdb=lm(analise1.clean$imdb_score~.,data = analise1.clean)
+confint(lm.imdb)
+summary(lm.imdb)
+#Regressão2
+lm.imdb.1=lm(analise1.clean$imdb_score~analise1.clean$num_critic_for_reviews+analise1.clean$duration+
+               analise1.clean$actor_3_facebook_likes+analise1.clean$actor_1_facebook_likes+
+               analise1.clean$gross+analise1.clean$num_voted_users+analise1.clean$cast_total_facebook_likes+analise1.clean$num_user_for_reviews+
+               analise1.clean$actor_2_facebook_likes+analise1.clean$movie_facebook_likes,data = analise1.clean)
+
+summary(lm.imdb.1)
+par(mfrow=c(1,1))
+
+#Criar dataset para treino
+set.seed(12345)
+#todos atributos menos o imdb_score
+treino=analise1.clean[,!(names(analise1.clean) %in% c("imdb_score"))]
+#so o imdb_score
+teste=analise1.clean[,(names(analise1.clean) %in% c("imdb_score"))]
+pred=round(as.numeric(predict(lm.imdb.1,treino)))
+previsao.expcted=as.data.frame(cbind(teste,pred))
+table(previsao.expcted)
+plot(table(previsao.expcted),xlab="IMDB Score", ylab = "Previsao", main="Distribuicao da Previsao",margins=c(13,12))
+minimdb=min(analise1.clean$imdb_score)
+maximdb=max(analise1.clean$imdb_score)
+smoothScatter(previsao.expcted,xlab = "IMBD Score", ylab="Previsao",main="Distribuicao da previsao",xlim = c(minimdb,maximdb),ylim=c(minimdb,maximdb))
+
+
+
+
+
 
 
 
