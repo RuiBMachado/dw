@@ -13,6 +13,10 @@ install.packages('tableplot')
 library(grid)
 library(ggthemes) 
 library(ggplot2)
+library(car)
+library(RColorBrewer) 
+library(corrplot)
+library(ggplot2)
 
 #Carregar dados do dataset
 #dataset <- read.csv("D:/Universidade/4 ano/BI/An?lise de Dados/dw/AD/movie_metadata.csv",header =TRUE,sep = ",",na.strings = "NA")
@@ -27,8 +31,8 @@ print(mfilme$movie_title)
 #Pior filme
 pfilme<-dataset[dataset$imdb_score==1.6,]
 print(pfilme$movie_title)
-#Distribuicao dos anos dos filmes
-hist()
+#Distribuicao dos anos dos filmes e score
+scatterplot(x=dataset$title_year,y=dataset$imdb_score)
 
 
 #Escolha de atributos candidatos para a analise
@@ -89,6 +93,7 @@ set.seed(12345)
 treino=analise1.clean[,!(names(analise1.clean) %in% c("imdb_score"))]
 #so o imdb_score
 teste=analise1.clean[,(names(analise1.clean) %in% c("imdb_score"))]
+
 pred=round(as.numeric(predict(lm.imdb.1,treino)))
 previsao.expcted=as.data.frame(cbind(teste,pred))
 table(previsao.expcted)
@@ -108,6 +113,13 @@ lm.reg2=lm(analise1.clean$imdb_score~analise1.clean$num_critic_for_reviews+anali
            +analise1.clean$num_user_for_reviews)
 summary(lm.reg2)
 
+par(mfrow=c(1,1))
+anova(lm.imdb,lm.imdb.1)
+anova(lm.imdb,lm.reg2)
+anova(lm.imdb.1,lm.reg2)
+plot(lm.imdb)
+plot(lm.imdb.1)
+plot(lm.reg2)
 
 
 
